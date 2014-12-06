@@ -20,6 +20,14 @@ class Animal extends \yii\db\ActiveRecord
         return 'animal';
     }
 
+    public static function  getAnimalList(){
+        return [
+            1 => 'Dog',
+            2 => 'Cat',
+            3 => 'Other'
+        ];
+    }
+
     /**
      * @inheritdoc
      */

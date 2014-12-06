@@ -1,19 +1,22 @@
-define(["backbone","models/marker", "jquery"], function(Backbone, Marker, $) {
+define(["backbone","models/marker", "models/filter", "underscore"], function(Backbone, Marker, Filter, _) {
 
 	return Backbone.Collection.extend({
-
+		filter: null,
 		model: Marker,
 		initialize: function() {
+			this.filter = window.app.Filter = new Filter();
 			this.fetch();
+
+			this.listenTo(this.filter, 'change', this.fetch);
 		},
 
 		fetch: function() {
 			var self = this;
-			$.ajax({
+			Backbone.$.ajax({
 				url: this.url,
-                filter: window.app.Filter.get(),
+                filter: window.app.Filter.attributes,
 				success: function( data ) {
-					
+					_.each(self.models, function(marker) { marker.del(); });
 					self.reset([
 						{ lat: '', lng: '', type: 1, animal: { id: 1, title: ''} },
 						{ lat: '', lng: '', type: 2, animal: { id: 2, title: ''} },

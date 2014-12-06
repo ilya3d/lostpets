@@ -28,6 +28,14 @@ class Point extends \yii\db\ActiveRecord
     public $lng = 0;
 
 
+    public static function  getTypeList(){
+        return [
+            2 => 'Lost',
+            4 => 'Found',
+            8 => 'Search new home'
+        ];
+    }
+
     /**
      * @inheritdoc
      */

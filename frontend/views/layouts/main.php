@@ -9,7 +9,11 @@ use frontend\widgets\Alert;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+//\yii\bootstrap\BootstrapAsset::register($this);
 AppAsset::register($this);
+
+
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -23,53 +27,23 @@ AppAsset::register($this);
 </head>
 <body>
     <?php $this->beginBody() ?>
-    <div class="wrap">
-        <?php
-            NavBar::begin([
-                'brandLabel' => 'My Company',
-                'brandUrl' => Yii::$app->homeUrl,
-                'options' => [
-                    'class' => 'navbar-inverse navbar-fixed-top',
-                ],
-            ]);
-            $menuItems = [
-                ['label' => 'Home', 'url' => ['/site/index']],
-                ['label' => 'About', 'url' => ['/site/about']],
-                ['label' => 'Contact', 'url' => ['/site/contact']],
-            ];
-            if (Yii::$app->user->isGuest) {
-                $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-                $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-            } else {
-                $menuItems[] = [
-                    'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                    'url' => ['/site/logout'],
-                    'linkOptions' => ['data-method' => 'post']
-                ];
-            }
-            echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
-                'items' => $menuItems,
-            ]);
-            NavBar::end();
-        ?>
+    <div class="b-container">
+        <div class="container__rama">
+            <div class="b-header">
+                <a href="/" class="header__logo"><img src="/images/logo.png" alt="" /></a>
+                <a href="/add/" class="header__btn">add new record</a>
+                <div class="header__login"><a href="#">Sign up</a><span class="header__logindot">/</span><a href="#">Login</a></div>
+                <div class="header__countbox">
+                    <div class="header__text">Find your home pets:</div>
+                    <div class="header__count"><img src="/images/counter.png" alt="" /></div>
+                </div>
+            </div>
 
-        <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+            <?= $content ?>
+
+            <div class="b-foot">&copy; <?= date('Y') ?> Lost Pets</div>
         </div>
     </div>
-
-    <footer class="footer">
-        <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-        <p class="pull-right"><?= Yii::powered() ?></p>
-        </div>
-    </footer>
-
     <?php $this->endBody() ?>
     <script data-main="app/config" src="vendor/requirejs/require.js"></script>
 </body>
