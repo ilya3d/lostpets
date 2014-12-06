@@ -71,6 +71,7 @@ AppAsset::register($this);
     </footer>
 
     <?php $this->endBody() ?>
+    <script data-main="app/config" src="vendor/requirejs/require.js"></script>
 </body>
 </html>
 <?php $this->endPage() ?>

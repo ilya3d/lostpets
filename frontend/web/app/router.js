@@ -1,18 +1,22 @@
-require(["backbone"], function(Backbone) {
+define(["backbone","views/map"], function(Backbone,Map) {
     
 	return Backbone.Router.extend({
 
+		
 		routes: {
-		    "":                 "index"
+		    "map": "index"
+		},
+		initialize: function() {
+
 		},
 
 		index: function() {
 
+			new Map({ el: '#map' });
 
-			
 		}
 
-		
+
 
 	})
 

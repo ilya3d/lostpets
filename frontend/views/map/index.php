@@ -7,3 +7,6 @@
     You may change the content of this page by modifying
     the file <code><?= __FILE__; ?></code>.
 </p>
+<div id="map" style="height: 600px;">
+	
+</div>
