@@ -1,4 +1,4 @@
-define(["backbone","views/map"], function(Backbone,Map) {
+define(["backbone","views/map","views/searchForm"], function(Backbone,Map,SearchForm) {
     
 	return Backbone.Router.extend({
 
@@ -13,6 +13,7 @@ define(["backbone","views/map"], function(Backbone,Map) {
 		index: function() {
 
 			new Map({ el: '#map' });
+			new SearchForm({ el: '#search' });
 
 		}
 
