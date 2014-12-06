@@ -15,6 +15,7 @@ use yii\web\IdentityInterface;
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
+ * @property string $phone
  * @property string $auth_key
  * @property integer $role
  * @property integer $status
@@ -57,6 +58,7 @@ class User extends ActiveRecord implements IdentityInterface
 
             ['role', 'default', 'value' => self::ROLE_USER],
             ['role', 'in', 'range' => [self::ROLE_USER]],
+            ['phone', 'string', 'max' => 50],
         ];
     }
 
