@@ -32,10 +32,9 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'gii' => 'gii',
-                'add' => 'add/index',
+                'add' => 'description/add',
                 'print/<hash:\w+>' => 'print/index',
                 '<cmd:\w+>/<action:\w+>'=>'<cmd>/<action>',
-                'add' => 'Add/index',
                 '<cmd:\w+>/<action:\w+>/<state:\w+>'=>'<cmd>/<action>/<state>',
                 '<cmd:\w+>/<action:\w+>/<state:\w+>/<sid:\w+>'=>'<cmd>/<action>/<state>/<sid>',
             ]

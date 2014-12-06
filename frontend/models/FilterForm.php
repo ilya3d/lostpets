@@ -15,8 +15,17 @@ class FilterForm extends Model
     public function rules()
     {
         return [
-            // name, email, subject and body are required
-            [['animal','type'], 'required'],
+            [['animal','type','topleft','botright'],'safe'],
+            [['animal'],function($attribute, $params){
+                if(!is_array($this->animal)){
+                    $this->addError('animal','is not array');
+                }
+            }],
+            [['type'],function($attribute, $params){
+                if(!is_array($this->type)){
+                    $this->addError('type','is not array');
+                }
+            }],
             [['topleft'],function($attribute, $params){
                 if(!is_array($this->topleft) || count($this->topleft)!=2){
                     $this->addError('topleft','is not array');
