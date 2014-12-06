@@ -5,7 +5,7 @@ use yii\db\Migration;
 
 class m141206_105553_points_for_testing extends Migration
 {
-    public function up()
+    public function safeUp()
     {
 
         /* animals */
@@ -91,7 +91,7 @@ class m141206_105553_points_for_testing extends Migration
 
     }
 
-    public function down()
+    public function safeDown()
     {
 
         $this->truncateTable('description');
