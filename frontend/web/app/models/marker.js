@@ -15,7 +15,11 @@ define(["backbone"], function(Backbone){
 
 			this.m = new window.google.maps.Marker(this.attributes);
 
+		},
+		remove: function() {
+			 window.gmap.removeOverlay(this.m);
 		}
+
 
 
 	});
