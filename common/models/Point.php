@@ -27,6 +27,17 @@ class Point extends \yii\db\ActiveRecord
     public $lat = 0;
     public $lng = 0;
 
+    public function fields(){
+        return[
+            'id',
+            'animal_id',
+            'type',
+            'user_id',
+            'status',
+        ];
+
+    }
+
 
     public static function  getTypeList(){
         return [

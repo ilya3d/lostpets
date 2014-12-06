@@ -61,10 +61,6 @@ class PointSearch extends Point
             'created_at' => $this->created_at,
         ]);
 
-        $query->andFilterWhere(['like', 'coordinate', $this->coordinate]);
-
-
-
         return $dataProvider;
     }
 }
