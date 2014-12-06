@@ -31,7 +31,7 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'gii' => 'gii',
-                'add' => 'Add/index',
+                'add' => 'add/index',
                 '<cmd:\w+>/<action:\w+>'=>'<cmd>/<action>',
                 '<cmd:\w+>/<action:\w+>/<state:\w+>'=>'<cmd>/<action>/<state>',
                 '<cmd:\w+>/<action:\w+>/<state:\w+>/<sid:\w+>'=>'<cmd>/<action>/<state>/<sid>',

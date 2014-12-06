@@ -9,7 +9,11 @@ use frontend\widgets\Alert;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+//\yii\bootstrap\BootstrapAsset::register($this);
 AppAsset::register($this);
+
+
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

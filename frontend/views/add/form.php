@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
+
+\yii\bootstrap\BootstrapAsset::register($this);
 /* @var $this yii\web\View */
 /* @var $model \frontend\models\AddPointForm */
 /* @var $form ActiveForm */
