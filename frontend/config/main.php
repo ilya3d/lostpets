@@ -32,6 +32,7 @@ return [
             'rules' => [
                 'gii' => 'gii',
                 '<cmd:\w+>/<action:\w+>'=>'<cmd>/<action>',
+                'add' => 'Add/index',
                 '<cmd:\w+>/<action:\w+>/<state:\w+>'=>'<cmd>/<action>/<state>',
                 '<cmd:\w+>/<action:\w+>/<state:\w+>/<sid:\w+>'=>'<cmd>/<action>/<state>/<sid>',
             ]
