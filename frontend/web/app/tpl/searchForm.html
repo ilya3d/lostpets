@@ -4,16 +4,16 @@
         <button><img src="/images/search.btn.png"></button>
     </div>
     <div class="map__zoobtn">
-        <a href="#" class="map__zoobtn1 js-search_animal"></a>
-        <a href="#" class="map__zoobtn2 js-search_animal"></a>
-        <a href="#" class="map__zoobtn3 js-search_animal"></a>
+        <a href="#" class="map__zoobtn1 js-search_animal {{#equal filter.type 1}}map__radiobtnon{{/equal}}" tp="1"></a>
+        <a href="#" class="map__zoobtn2 js-search_animal {{#equal filter.type 2}}map__radiobtnon{{/equal}}" tp="2"></a>
+        <a href="#" class="map__zoobtn3 js-search_animal {{#equal filter.type 3}}map__radiobtnon{{/equal}}" tp="3"></a>
         <input type="hidden" name="animal" value="{{ filter.animal }}">
     </div>
     <div class="map__panelline"></div>
     <div class="map__radiobox">
-        <div class="js-search_type map__radioline {{#equal filter.type 1}}map__radiolineon{{/equal}}" tp="1"><ins></ins>Lost</div>
-        <div class="js-search_type map__radioline {{#equal filter.type 2}}map__radiolineon{{/equal}}" tp="2"><ins></ins>Found</div>
-        <div class="js-search_type map__radioline {{#equal filter.type 3}}map__radiolineon{{/equal}}" tp="3"><ins></ins>Search  new home</div>
+        <div class="js-search_type map__radioline {{#equal filter.type 2}}map__radiolineon{{/equal}}" tp="2"><ins></ins>Lost</div>
+        <div class="js-search_type map__radioline {{#equal filter.type 4}}map__radiolineon{{/equal}}" tp="4"><ins></ins>Found</div>
+        <div class="js-search_type map__radioline {{#equal filter.type 8}}map__radiolineon{{/equal}}" tp="8"><ins></ins>Search  new home</div>
         <input type="hidden" name="type" value="{{ filter.type }}">
     </div>
     <div class="js-search_btn map__btn"><button>search</button></div>
