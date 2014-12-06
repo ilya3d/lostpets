@@ -51,5 +51,8 @@ return [
             'errorAction' => 'site/error',
         ],
     ],
+
+    'defaultRoute' => 'map',
+
     'params' => $params,
 ];
