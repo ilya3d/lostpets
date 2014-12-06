@@ -18,7 +18,7 @@ class MapController extends Controller
     public function actionFilter(){
 
         $filter = new FilterForm();
-        $filter->load(Yii::$app->request->post());
+        $filter->setAttributes(Yii::$app->request->post());
 
         if ($filter->validate())
            echo json_encode(Point::findPolygon($filter->topleft,$filter->botright,$filter->type,$filter->animal));
