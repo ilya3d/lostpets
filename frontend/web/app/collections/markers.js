@@ -14,7 +14,7 @@ define(["backbone","models/marker", "models/filter", "underscore"], function(Bac
 		fetch: function() {
 			var self = this;
 			Backbone.$.ajax({
-				type: 'POST',
+				type: 'GET',
 				url: this.url,
                 data: window.app.Filter.attributes,
 				success: function( data ) {
