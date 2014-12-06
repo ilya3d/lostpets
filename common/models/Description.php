@@ -9,6 +9,7 @@ use Yii;
  *
  * @property integer $id
  * @property integer $point_id
+ * @property Point $point
  * @property string $title
  * @property string $description
  */
@@ -47,4 +48,10 @@ class Description extends \yii\db\ActiveRecord
             'description' => 'Description',
         ];
     }
+
+    public function getPoint()
+    {
+        return $this->hasOne(Point::className(), ['id' => 'point_id']);
+    }
+
 }

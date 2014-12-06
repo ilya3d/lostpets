@@ -1,4 +1,4 @@
-define([ "backbone", "jquery", "text!tpl/searchForm.html" ], function(Backbone, $, html) {
+define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html" ], function(Backbone, $, Handlebars, html) {
 
     return Backbone.View.extend({
 
@@ -16,7 +16,7 @@ define([ "backbone", "jquery", "text!tpl/searchForm.html" ], function(Backbone, 
 
         render: function() {
 
-            var tpl = _.template( this.template );
+            var tpl = Handlebars.compile( this.template );
             this.$el.html( tpl( { str: 'nyxnyxnyx' } ) );
         },
 
