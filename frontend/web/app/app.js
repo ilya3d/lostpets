@@ -1,4 +1,4 @@
-require(["backbone","router","map"], function(Backbone, Router) {
+require(["backbone","router"], function(Backbone, Router) {
     
 	var app = window.app = {
 
@@ -11,7 +11,7 @@ require(["backbone","router","map"], function(Backbone, Router) {
 
 
 
-	Backbone.history.start();
+	Backbone.history.start({ pushState: true });
 
 
 })

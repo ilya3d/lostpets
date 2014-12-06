@@ -7,9 +7,7 @@ requirejs.config({
     //never includes a ".js" extension since
     //the paths config could be for a directory.
     shim: {
-        maps: {
-           exports: 'google'
-        }
+      
     },
     paths: {
         backbone: '../vendor/backbone/backbone',
@@ -17,9 +15,14 @@ requirejs.config({
         text: '../vendor/requirejs-text/text',
         handlebars: '../vendor/handlebars/handlebars',
         jquery: '../vendor/jQuery/dist/jquery.min',
-        maps: 'http://maps.googleapis.com/maps/api/js?key=AIzaSyDr-WuoW28g6NfwUjOLdzUFV8YP6M4v_Rw&sensor=false'
+        async: '../vendor/requirejs-plugins/src/async'
     }
 });
-require(["app"], function(app) {
+require([
+
+    "app",
     
+    ], function(app, maps) {
+  
+
 })

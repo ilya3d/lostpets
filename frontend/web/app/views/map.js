@@ -1,14 +1,19 @@
-require(["backbone","map"], function(Backbone, google) {
+define([
+
+	"backbone",
+	"jquery",
+	"async!http://maps.googleapis.com/maps/api/js?key=AIzaSyDr-WuoW28g6NfwUjOLdzUFV8YP6M4v_Rw&sensor=false"
+
+], function(Backbone, $, Google) {
     
 	return Backbone.View.extend({
 
-		el: 'div',
 		map: null,
 
 		option: {
-			center: new google.maps.LatLng(-34.397, 150.644),
+			center: new window.google.maps.LatLng(-34.397, 150.644),
           	zoom: 8,
-          	mapTypeId: google.maps.MapTypeId.ROADMAP
+          	mapTypeId: window.google.maps.MapTypeId.ROADMAP
 		},
 
 		initialize: function() {
@@ -16,7 +21,8 @@ require(["backbone","map"], function(Backbone, google) {
 		},
 
 		render: function() {
-			window.map = this.map = new google.maps.Map(this.$el, this.option);
+
+			window.map = this.map = new window.google.maps.Map(this.el, this.option);
 		}
 
 
