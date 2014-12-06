@@ -7,11 +7,12 @@ define(["backbone","models/marker", "jquery"], function(Backbone, Marker, $) {
 			this.fetch();
 		},
 
-		fetch: function() {
+		fetch: function( filter ) {
 			var self = this;
 			$.ajax({
 				url: this.url,
-				success: function(data) {
+                filter: filter,
+				success: function( data ) {
 					
 					self.reset([
 						{ lat: '', lng: '', type: 1, animal: { id: 1, title: ''} },
