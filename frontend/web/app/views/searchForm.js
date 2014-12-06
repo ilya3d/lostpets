@@ -28,7 +28,7 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html" ], functi
         render: function() {
 
             var tpl = Handlebars.compile( this.template );
-            this.$el.html( tpl( { str: 'nyxnyxnyx' } ) );
+            this.$el.html( tpl( { filter: app.Filter.attributes } ) );
         },
 
         search: function() {

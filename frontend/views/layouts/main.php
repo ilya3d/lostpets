@@ -31,7 +31,7 @@ AppAsset::register($this);
         <div class="container__rama">
             <div class="b-header">
                 <a href="/" class="header__logo"><img src="/images/logo.png" alt="" /></a>
-                <a href="/" class="header__btn">add new record</a>
+                <a href="/add/" class="header__btn">add new record</a>
                 <div class="header__login"><a href="#">Sign up</a><span class="header__logindot">/</span><a href="#">Login</a></div>
                 <div class="header__countbox">
                     <div class="header__text">Find your home pets:</div>
@@ -39,7 +39,6 @@ AppAsset::register($this);
                 </div>
             </div>
 
-            <?= Alert::widget() ?>
             <?= $content ?>
 
             <div class="b-foot">&copy; <?= date('Y') ?> Lost Pets</div>

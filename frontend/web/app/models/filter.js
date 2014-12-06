@@ -8,7 +8,7 @@ define(["backbone"], function(Backbone){
 	        y1: 0,
 	        y2: 0,
 	        type: 1,
-	        animal: 1,
+	        animal: 1
 		}
 		
 
