@@ -11,6 +11,9 @@ require(["backbone","router"], function(Backbone, Router) {
 
 
 
+
+
+
 	Backbone.history.start({ pushState: true });
 
 
