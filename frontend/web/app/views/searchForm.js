@@ -1,4 +1,5 @@
-define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html" ], function(Backbone, $, Handlebars, html) {
+define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html", "text!tpl/searchList.html" ],
+    function(Backbone, $, Handlebars, html, html2 ) {
 
     return Backbone.View.extend({
 
