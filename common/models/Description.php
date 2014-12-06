@@ -31,6 +31,22 @@ class Description extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+
+    public function fields(){
+        return [
+            'id',
+            'point_id',
+            'point',
+            'title',
+            'description',
+            'phone',
+            'email',
+            'photo',
+            'qrcode',
+            'hash',
+        ];
+    }
+
     public function rules()
     {
         return [
