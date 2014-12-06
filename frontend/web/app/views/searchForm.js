@@ -36,8 +36,8 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html" ], functi
         search: function() {
 
             app.Filter.set({
-                type: $('input[name=type]').val(),
-                animal: $('input[name=animal]').val()
+                type: $('input[name=type]').val().split(','),
+                animal: $('input[name=animal]').val().split(',')
             });
 
         },
@@ -52,9 +52,15 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html" ], functi
         },
 
         srAnimal: function( itm ) {
-            $('.js-search_animal').removeClass( 'map__radiolineon' );
-            var curType =  $( itm.currentTarget ).addClass( 'map__radiolineon' ).attr( 'tp' );
-            $('input[name=animal]').val( curType );
+            //$('.js-search_animal').removeClass( 'map__radiolineon' );
+            //var curType =  $( itm.currentTarget ).addClass( 'map__radiolineon' ).attr( 'tp' );
+            //$('input[name=animal]').val( curType );
+            var res = [];
+            $( itm.currentTarget).toggleClass( 'map__radiobtnon' );
+            $('.map__radiobtnon').each( function() {
+                res.push( $(this).attr( 'tp' ) );
+            });
+            $('input[name=animal]').val( res );
         }
 
 
