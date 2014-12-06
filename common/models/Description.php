@@ -12,6 +12,11 @@ use Yii;
  * @property Point $point
  * @property string $title
  * @property string $description
+ * @property string $phone
+ * @property string $email
+ * @property string $photo
+ * @property string $qrcode
+ * @property string $hash
  */
 class Description extends \yii\db\ActiveRecord
 {
@@ -32,7 +37,12 @@ class Description extends \yii\db\ActiveRecord
             [['point_id'], 'integer'],
             [['title', 'description'], 'required'],
             [['description'], 'string'],
-            [['title'], 'string', 'max' => 255]
+            [['title'], 'string', 'max' => 255],
+            [['phone'], 'string', 'max' => 50],
+            [['email'], 'string', 'max' => 255],
+            [['photo'], 'string', 'max' => 255],
+            [['qrcode'], 'string', 'max' => 255],
+            [['hash'], 'string', 'max' => 32]
         ];
     }
 
@@ -46,6 +56,11 @@ class Description extends \yii\db\ActiveRecord
             'point_id' => 'Point ID',
             'title' => 'Title',
             'description' => 'Description',
+            'phone' => 'Phone',
+            'email' => 'E-mail',
+            'photo' => 'Pets photo',
+            'qrcode' => 'QR-code for this page',
+            'hash' => 'Hash',
         ];
     }
 
