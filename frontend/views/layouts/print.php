@@ -24,6 +24,7 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
     <?php $this->head() ?>
+    <link rel="stylesheet" type="text/css" href="<?= \Yii::$app->getUrlManager()->createAbsoluteUrl('/css/print.css') ?>" media="screen,projection,print" charset="utf-8" />
 </head>
     <body>
         <?php $this->beginBody() ?>
