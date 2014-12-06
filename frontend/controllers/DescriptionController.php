@@ -21,6 +21,7 @@ class DescriptionController extends Controller
         return $this->render('index', [
             'model' => $this->findModel($id),
         ]);
+
     }
 
     /**
