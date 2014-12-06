@@ -11,15 +11,17 @@ class PrintController extends Controller
     public function actionIndex($hash)
     {
 
-        //echo $hash;
+        $description = new Description;
+        $item = $description->findOne(['hash' => $hash]);
 
-        header('Content-Type: image/png;');
 
-        $qrCode = new QrCode();
-        $qrCode->setText("Life is too short to be generating QR codes");
-        $qrCode->setSize(150);
-        $qrCode->setPadding(10);
-        $qrCode->render();
+
+
+//        $qrCode = new QrCode();
+//        $qrCode->setText("Life is too short to be generating QR codes");
+//        $qrCode->setSize(150);
+//        $qrCode->setPadding(10);
+//        $qrCode->save('filepath.png');
 
 
 //        $model = new Description();
