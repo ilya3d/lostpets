@@ -1,4 +1,4 @@
-define([ "backbone", "jquery" ], function(Backbone, $) {
+define([ "backbone", "jquery","handlebars" ], function(Backbone, $, Handlebars) {
 
     return Backbone.View.extend({
 
@@ -16,7 +16,7 @@ define([ "backbone", "jquery" ], function(Backbone, $) {
 
         render: function() {
 
-            var tpl = _.template( this.template );
+            var tpl = Handlebars.compile( this.template );
             this.$el.html( tpl( { str: 'nyxnyxnyx' } ) );
         },
 
