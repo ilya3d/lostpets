@@ -1,0 +1,137 @@
+/*---reset-----------------------*/
+
+
+* {
+    font-size: 100.01%;
+    font-family: Tahoma; 
+}
+
+body, html,
+h1, h2, h3, h4, h5, h6,
+address, blockquote, div, p,
+dl, dt, dd, ol, ul, li,
+form, label,
+table, tbody, td, th, tr,
+img  {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+ol, ul {list-style: none;}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th, td {
+    vertical-align: top;
+    text-align: left;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {content: '';}
+
+blockquote, q {quotes: '' '';}
+input, textarea { outline:none; }
+input:active, textarea:active { outline:none; }
+:focus { outline:none; } 
+/*---default---------------------*/
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-size: 14px;
+    font-style: normal;
+    font-family: 'Open Sans', sans-serif;
+    color: #000;
+    background-color: #fff;
+
+}
+
+a:link, a:active, a:visited, a:hover {
+    color: #21a0c9;
+}
+
+a:hover {
+    text-decoration: none;
+}
+.g-clear {
+    clear: both;
+    font-size: 0;
+}
+/*-----------------------*/
+.b-container {
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+/*-----------------------*/
+.logo {
+    margin-bottom: 20px;
+    float: left;
+}
+.quercode {
+    margin-bottom: 20px;
+    float: right;
+}
+/*-----------------------*/
+.b-editor {
+    margin-bottom: 40px;
+    font-size: 18px;
+}
+.b-editor p.title {
+    padding-bottom: 20px;
+    font-size: 50px;
+}
+.b-editor p {
+    padding-bottom: 20px;
+}
+/*-----------------------*/
+.b-phonebox {
+    display: table;
+    width: 100%;
+    border-top: 1px dotted #bdbdbd;
+}
+.b-phonebox .phonebox__item {
+    height: 180px;
+    border-left: 1px dotted #bdbdbd;
+    border-right: 1px dotted #bdbdbd;
+    border-bottom: 0;
+    display: table-cell;
+    text-align: center;
+    position: relative;
+}
+.b-phonebox .phonebox__item span {
+    display: block;
+    position: absolute;
+    top: 120px;
+    left: 0;
+    right: 0;
+    white-space: nowrap;
+    -webkit-transform: rotate(270deg); 
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+/*-----------------------*/
+/*-----------------------*/
+/*-----------------------*/
+/*-----------------------*/
+/*-----------------------*/
+/*-----------------------*/
+/*-----------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
