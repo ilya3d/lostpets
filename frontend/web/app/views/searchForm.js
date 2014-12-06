@@ -21,7 +21,11 @@ define([ "backbone", "jquery" ], function(Backbone, $) {
         },
 
         search: function() {
-            console.log( 'search' );
+
+            // todo filter params
+            var filter = [];
+
+            window.app.Collections.Markers.fetch( filter );
         }
 
 
