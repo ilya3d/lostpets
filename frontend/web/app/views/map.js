@@ -1,22 +1,64 @@
-require(["backbone","map"], function(Backbone, google) {
+define([
+
+	"backbone",
+	"underscore",
+	"async!http://maps.googleapis.com/maps/api/js?key=AIzaSyDr-WuoW28g6NfwUjOLdzUFV8YP6M4v_Rw&sensor=false"
+
+], function(Backbone, _, Google) {
     
 	return Backbone.View.extend({
 
-		el: 'div',
 		map: null,
 
 		option: {
-			center: new google.maps.LatLng(-34.397, 150.644),
+			center: new window.google.maps.LatLng(55.75634, 37.63002),
           	zoom: 8,
-          	mapTypeId: google.maps.MapTypeId.ROADMAP
+          	mapTypeId: window.google.maps.MapTypeId.ROADMAP
 		},
 
 		initialize: function() {
-			this.render();
+			this.locationMarker = null;
+			this.listenTo(this.collection, 'reset', this.render );
 		},
 
 		render: function() {
-			window.map = this.map = new google.maps.Map(this.$el, this.option);
+			var self = this;
+			navigator.geolocation.getCurrentPosition(
+				function( position ){
+ 					if (window.geo){ return; }		
+ 					window.geo = {
+ 						lat: position.coords.latitude,
+ 						lng: position.coords.longitude
+ 					};
+ 					self.option.center = new window.google.maps.LatLng(window.geo.lat, window.geo.lng);
+					
+					window.gmap = self.map = new window.google.maps.Map(self.el, self.option);
+
+					_.each(self.collection.models, function(marker) {
+						marker.add();
+					});
+
+				},
+				function( error ){
+					window.geo = {
+ 						lat: 55.75634,
+ 						lng: 37.63002
+ 					};
+ 					self.option.center = new window.google.maps.LatLng(window.geo.lat, window.geo.lng);
+ 					window.gmap = self.map = new window.google.maps.Map(self.el, self.option);
+
+					_.each(self.collection.models, function(marker) {
+						marker.add();
+					});
+				},
+				{
+					timeout: (5 * 1000),
+					maximumAge: (1000 * 60 * 15),
+					enableHighAccuracy: true
+				}
+			);
+
+		
 		}
 
 
