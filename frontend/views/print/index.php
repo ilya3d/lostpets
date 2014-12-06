@@ -4,9 +4,13 @@
     <div class="g-clear"></div>
     <div class="b-editor">
         <p class="title"><?= $description->title ?></p>
+        <?php if($description->photo): ?>
         <p><img src="<?= \Yii::$app->getUrlManager()->createAbsoluteUrl('/uploads/'.$description->photo) ?>" alt="" /></p>
+        <?php endif ?>
         <p><?= $description->description ?></p>
     </div>
+
+    <?php if($description->phone): ?>
     <div class="b-phonebox">
 
         <div class="phonebox__item"><span>тел.: <?= $description->phone ?></span></div>
@@ -20,4 +24,5 @@
         <div class="phonebox__item"><span>тел.: <?= $description->phone ?></span></div>
 
     </div>
+    <? endif ?>
 </div>

@@ -4,7 +4,8 @@ define(["backbone","views/map","collections/markers","views/searchForm"], functi
 
 		
 		routes: {
-		    "map": "index"
+            "": "index",
+            "map": "index"
 		},
 		initialize: function() {
 
