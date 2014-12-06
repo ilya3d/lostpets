@@ -27,8 +27,11 @@ class PointController extends Controller
     }
 
     public function actionTest(){
-        $result = Point::findPolygon([31.968842,54.816316],[32.150631,54.817305],[32.150459,54.744442],[31.962318,54.746920]);
-        var_dump($result);
+        //$result = Point::findPolygon([31.968842,54.816316],[32.150631,54.817305],[32.150459,54.744442],[31.962318,54.746920]);
+        //var_dump($result);
+
+
+
     }
 
     /**
