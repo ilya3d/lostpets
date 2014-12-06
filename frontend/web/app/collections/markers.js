@@ -7,11 +7,11 @@ define(["backbone","models/marker", "jquery"], function(Backbone, Marker, $) {
 			this.fetch();
 		},
 
-		fetch: function( filter ) {
+		fetch: function() {
 			var self = this;
 			$.ajax({
 				url: this.url,
-                filter: filter,
+                filter: window.app.Filter.get(),
 				success: function( data ) {
 					
 					self.reset([

@@ -23,9 +23,16 @@ define([ "backbone", "jquery","handlebars" ], function(Backbone, $, Handlebars) 
         search: function() {
 
             // todo filter params
-            var filter = [];
+            //var filter = {
+            //    animal: 1,
+            //    type: 1,
+            //    topleft: [],
+            //    topright: [],
+            //    botleft: [],
+            //    botright: []
+            //};
 
-            window.app.Collections.Markers.fetch( filter );
+            window.app.Collections.Markers.fetch();
         }
 
 
