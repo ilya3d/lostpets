@@ -154,7 +154,7 @@ a:hover {
 /*-----------------------*/
 .b-map {
     margin: 0 -2000px;
-    height: 915px;
+    /*height: 915px;*/
     text-align: center;
     overflow: hidden;
 }

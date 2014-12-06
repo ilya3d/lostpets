@@ -17,7 +17,7 @@ define(["backbone","views/map","collections/markers","views/searchForm"], functi
 			window.app.Collections.Markers.fetch();
 			window.app.Views.Map = new Map({ el: '#map', collection: window.app.Collections.Markers });
 
-            new SearchForm( { el: '#search' } );
+            new SearchForm( { el: '.js-search' } );
 		}
 
 

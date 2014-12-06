@@ -1,12 +1,10 @@
 <?php
 /* @var $this yii\web\View */
 ?>
-<h1>Lost Pets</h1>
+<div class="b-map">
+    <div class="map__wrap">
+        <div class="map__wrap2 js-search"></div>
+    </div>
 
-<p>Text text text.</p>
-
-<div id="map" style="height: 600px;">
-	
+    <div id="map" style="height: 600px;"></div>
 </div>
-
-<div id="search"></div>

@@ -1,16 +1,16 @@
-define([ "backbone", "jquery" ], function(Backbone, $) {
+define([ "backbone", "jquery", "text!tpl/searchForm.html" ], function(Backbone, $, html) {
 
     return Backbone.View.extend({
 
-        template: '<div><input type="text" value="nyxnyxnyx"><input class="js_search" type="button" value="send"></div>',
+        template: '',
 
         events: {
-            "click .js_search": "search"
+            "click .js-search_btn": "search"
         },
 
 
         initialize: function() {
-
+            this.template = html;
             this.render();
         },
 
