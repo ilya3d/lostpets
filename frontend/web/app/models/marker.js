@@ -23,7 +23,7 @@ define(["backbone"], function(Backbone){
 			this.set({
 				position: new window.google.maps.LatLng(this.get('lat'),this.get('lng')),
 				map: window.gmap,
-				icon: '/images/map.marker.'+this.get('animal')+'.'+type+'.png';
+				icon: '/images/map.marker.'+this.get('animal_id')+'.'+type+'.png'
 			});
 
 			this.on('destroy' , this.del);

@@ -34,7 +34,7 @@ class AddPointForm extends Model
             // name, email, subject and body are required
             [['title', 'description', 'subject', 'body','type','animal','phone'], 'required'],
             // email has to be a valid email address
-            ['photo','file','extensions' => ['png', 'jpg', 'gif'],'mimeTypes'=>'image/jpeg, image/png, image/gif'],
+            ['photo','file','extensions' => ['png', 'jpg', 'jpeg' , 'gif'],'mimeTypes'=>'image/jpeg, image/png, image/gif'],
             ['email','email'],
             [['type','animal'],'integer']
         ];
@@ -50,6 +50,7 @@ class AddPointForm extends Model
             if (!is_dir($dir)){
                 mkdir($dir, 0755, true);
             }
+
 
             $ext = end(explode(".", $file->name));
 
@@ -84,6 +85,11 @@ class AddPointForm extends Model
 
         $description->save();
 
+        $dir = Yii::getAlias('@qr');
+        if (!is_dir($dir)){
+            mkdir($dir, 0755, true);
+        }
+
         $qrCode = new QrCode();
         $qrCode->setText("/detail/".$description->id);
         $qrCode->setSize(150);
@@ -91,7 +97,7 @@ class AddPointForm extends Model
 
         $qrName = Yii::$app->security->generateRandomString('20').'.png';
 
-        $qrCode->save($qrName);
+        $qrCode->save($dir.DIRECTORY_SEPARATOR.$qrName);
         $description->qrcode = $qrName;
         $description->save();
 
