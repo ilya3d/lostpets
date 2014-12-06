@@ -4,17 +4,19 @@ namespace frontend\controllers;
 
 use common\models\Description;
 use yii\web\Controller;
-use Endroid\QrCode\QrCode;;
 
 class PrintController extends Controller
 {
+
+    public $layout = 'print';
+
     public function actionIndex($hash)
     {
 
         $description = new Description;
         $item = $description->findOne(['hash' => $hash]);
 
-
+        echo $this->render('index', ['description' => $item]);
 
 
 //        $qrCode = new QrCode();
