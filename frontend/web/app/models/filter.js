@@ -3,8 +3,8 @@ define(["backbone"], function(Backbone){
 	return Backbone.Model.extend({
 
 		defaults: {
-	        type: 1,
-	        animal: 1
+	        type: [],
+	        animal: []
 		},
 		initialize: function() {
 

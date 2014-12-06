@@ -43,9 +43,12 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html" ], functi
         },
 
         srType: function( itm ) {
-            $('.js-search_type').removeClass( 'map__radiolineon' );
-            var curType =  $( itm.currentTarget ).addClass( 'map__radiolineon' ).attr( 'tp' );
-            $('input[name=type]').val( curType );
+            var res = [];
+            $( itm.currentTarget).toggleClass( 'map__radiolineon' );
+            $('.map__radiolineon').each( function() {
+                res.push( $(this).attr( 'tp' ) );
+            });
+            $('input[name=type]').val( res );
         },
 
         srAnimal: function( itm ) {
