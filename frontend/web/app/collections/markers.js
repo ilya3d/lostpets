@@ -1,4 +1,4 @@
-define(["backbone","models/marker", "models/filter"], function(Backbone, Marker, Filter) {
+define(["backbone","models/marker", "models/filter", "underscore"], function(Backbone, Marker, Filter, _) {
 
 	return Backbone.Collection.extend({
 		filter: null,
@@ -16,7 +16,7 @@ define(["backbone","models/marker", "models/filter"], function(Backbone, Marker,
 				url: this.url,
                 filter: window.app.Filter.attributes,
 				success: function( data ) {
-					
+					_.each(self.models, function(marker) { marker.del(); });
 					self.reset([
 						{ lat: '', lng: '', type: 1, animal: { id: 1, title: ''} },
 						{ lat: '', lng: '', type: 2, animal: { id: 2, title: ''} },

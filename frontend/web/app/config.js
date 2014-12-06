@@ -22,7 +22,7 @@ require([
 
     "app",
     
-    ], function(app, maps) {
+    ], function(app) {
   
 
 })
