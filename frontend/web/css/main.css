@@ -1,0 +1,342 @@
+/*---reset-----------------------*/
+
+
+* {
+    font-size: 100.01%;
+    font-family: Tahoma; 
+}
+
+body, html,
+h1, h2, h3, h4, h5, h6,
+address, blockquote, div, p,
+dl, dt, dd, ol, ul, li,
+form, label,
+table, tbody, td, th, tr,
+img  {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+ol, ul {list-style: none;}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th, td {
+    vertical-align: top;
+    text-align: left;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {content: '';}
+
+blockquote, q {quotes: '' '';}
+
+/*---default---------------------*/
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-size: 14px;
+    font-style: normal;
+    font-family: 'Open Sans', sans-serif;
+    color: #383a3d;
+    background-color: #fff;
+
+}
+
+a:link, a:active, a:visited, a:hover {
+    color: #21a0c9;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/*-----------------------*/
+
+.b-container {
+    position: relative;
+    overflow: hidden;
+    
+}
+.container__rama {
+    margin: 0 auto;
+    width: 980px;
+    position: relative;
+}
+/*-----------------------*/
+.b-foot {
+    margin: 0 -2000px;
+    padding: 13px 2000px 15px 2000px;
+    text-align: center;
+    color: #8a8989;
+    font-size: 12px;
+    background: #292a2b;
+}
+/*-----------------------*/
+.b-header {
+    height: 115px;
+    position: relative;
+}
+.b-header .header__logo {
+    position: absolute;
+    top: 35px;
+    left: 20px;
+}
+.b-header a.header__btn:link,
+.b-header a.header__btn:active,
+.b-header a.header__btn:visited,
+.b-header a.header__btn:hover {
+    padding: 20px 0;
+    width: 230px;
+    position: absolute;
+    top: 25px;
+    left: 270px;
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    background: #5dcb32;
+    border-bottom: 3px solid #53b32d;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.b-header a.header__btn:hover {
+    background-color: #53b32d;
+}
+.b-header .header__login {
+    position: absolute;
+    top: 17px;
+    right: 20px;
+    text-align: right;
+}
+.b-header .header__login a:link, 
+.b-header .header__login a:active, 
+.b-header .header__login a:visited, 
+.b-header .header__login a:hover {
+    font-size: 12px;
+    color: #262728;    
+    text-decoration: none;
+}
+.b-header .header__login a:hover {
+    text-decoration: underline;
+}
+.b-header .header__logindot {
+    padding: 0 8px;
+}
+.b-header .header__countbox {
+    position: absolute;
+    top: 45px;
+    right: 20px;
+}
+.b-header .header__text {
+    margin-right: 10px;
+    padding-top: 8px;
+    float: left;
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: top;
+}
+.b-header .header__count {
+    display: inline-block;
+    vertical-align: top;
+}
+/*-----------------------*/
+.b-map {
+    margin: 0 -2000px;
+    height: 915px;
+    text-align: center;
+    overflow: hidden;
+}
+.b-map .map__wrap {
+    padding: 0 2000px;
+}
+.b-map .map__wrap2 {
+    position: relative;
+}
+.b-map .map__searchbox {
+    padding: 25px 20px;
+    width: 190px;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    background: #f0efed;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 0px 20px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 0px 20px 0px rgba(50, 50, 50, 0.75);
+    z-index: 30;
+    text-align: left;
+} 
+.b-map .map__searchline {
+    margin-bottom: 20px;
+    background: url(/images/search.bg.png) 50% 0 no-repeat;
+    height: 30px;
+    position: relative;
+}
+.b-map .map__searchline button {
+    margin: 0;
+    padding: 0;
+    width: 11px;
+    height: 11px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: 0;
+    cursor: pointer;
+    background: none;
+    font-size: 0;
+}
+.b-map .map__searchline input {
+    padding: 8px 0 5px 12px;
+    width: 140px;
+    font-size: 12px;
+    font-family: Myriad Pro;
+    color: #262728;
+    border: 0;
+    background: none;
+}
+.b-map .map__panelline {
+    margin-bottom: 20px;
+    height: 2px;
+    font-size: 0;
+    background: url(/images/panel.line.gif) 0 0 repeat-x;
+}
+.b-map .map__radiobox {
+    padding-bottom: 16px;
+}
+.b-map .map__radioline {
+    padding-bottom: 9px;
+    padding-left: 25px;
+    position: relative;
+    font-size: 14px;
+    color: #383a3d;
+    cursor: pointer;
+}
+.b-map .map__radioline ins {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 2px;
+    left: 0;
+    display: block;
+    font-size: 0;
+}
+.b-map .map__radioline:nth-child(1) ins {
+    background: url(/images/search.radio1.png) 0 100% no-repeat;
+}
+.b-map .map__radioline:nth-child(2) ins {
+    background: url(/images/search.radio2.png) 0 100% no-repeat;
+}
+.b-map .map__radioline:nth-child(3) ins {
+    background: url(/images/search.radio3.png) 0 100% no-repeat;
+}
+.b-map .map__radiolineon:nth-child(1) ins {
+    background-position: 0 0;
+}
+.b-map .map__radiolineon:nth-child(2) ins {
+    background-position: 0 0;
+}
+.b-map .map__radiolineon:nth-child(3) ins {
+    background-position: 0 0;
+}
+.b-map .map__btn button {
+    padding: 10px 0;
+    width: 100%;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: #ffffff;
+    color: #45494d;
+    border: 0;
+    border-bottom: 3px solid #f2f0ed;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+    -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+    box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+}
+.b-map .map__zoobtn {
+    margin-bottom: 30px;
+}
+.b-map .map__zoobtn:after {
+    content: "";
+    display: block;
+    clear: both;
+    font-size: 0;
+}
+.b-map a.map__zoobtn1:link,
+.b-map a.map__zoobtn1:active,
+.b-map a.map__zoobtn1:visited,
+.b-map a.map__zoobtn1:hover {
+    margin-bottom: 10px;
+    width: 90px;
+    height: 80px;
+    background: url(/images/map.zoobtn1.png) 0 0 no-repeat;
+    float: left;
+}
+.b-map a.map__zoobtn1:hover {
+    background: url(/images/map.zoobtn1.png) 0 100% no-repeat;
+}
+.b-map a.map__zoobtn2:link,
+.b-map a.map__zoobtn2:active,
+.b-map a.map__zoobtn2:visited,
+.b-map a.map__zoobtn2:hover {
+    margin-bottom: 10px;
+    width: 90px;
+    height: 80px;
+    background: url(/images/map.zoobtn2.png) 0 0 no-repeat;
+    float: right;
+}
+.b-map a.map__zoobtn2:hover {
+    background: url(/images/map.zoobtn2.png) 0 100% no-repeat;
+}
+.b-map a.map__zoobtn3:link,
+.b-map a.map__zoobtn3:active,
+.b-map a.map__zoobtn3:visited,
+.b-map a.map__zoobtn3:hover {
+    width: 190px;
+    height: 80px;
+    background: url(/images/map.zoobtn3.png) 0 0 no-repeat;
+    float: left;
+}
+.b-map a.map__zoobtn3:hover {
+    background: url(/images/map.zoobtn3.png) 0 100% no-repeat;
+}
+/*-----------------------*/
+/*-----------------------*/
+/*-----------------------*/
+/*-----------------------*/
+/*-----------------------*/
+/*-----------------------*/
+/*-----------------------*/
+/*-----------------------*/
+/*-----------------------*/
+/*-----------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
