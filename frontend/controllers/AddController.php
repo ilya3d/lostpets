@@ -15,7 +15,7 @@ class AddController extends Controller
 
         
         if ($model->load(\Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['/']);
+            echo "good";
         } else {
             return $this->render('form', [
                 'model' => $model,

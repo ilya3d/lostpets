@@ -5,7 +5,9 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html" ], functi
         template: '',
 
         events: {
-            "click .js-search_btn": "search"
+            "click .js-search_btn": "search",
+            "click .js-search_type": "srType",
+            "click .js-search_animal": "srAnimal"
         },
 
 
@@ -33,17 +35,23 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html" ], functi
 
         search: function() {
 
-            // todo filter params
-            //var filter = {
-            //    animal: 1,
-            //    type: 1,
-            //    topleft: [],
-            //    topright: [],
-            //    botleft: [],
-            //    botright: []
-            //};
+            app.Filter.set({
+                type: $('input[name=type]').val(),
+                animal: $('input[name=animal]').val()
+            });
 
-            window.app.Collections.Markers.fetch();
+        },
+
+        srType: function( itm ) {
+            $('.js-search_type').removeClass( 'map__radiolineon' );
+            var curType =  $( itm.currentTarget ).addClass( 'map__radiolineon' ).attr( 'tp' );
+            $('input[name=type]').val( curType );
+        },
+
+        srAnimal: function( itm ) {
+            $('.js-search_animal').removeClass( 'map__radiolineon' );
+            var curType =  $( itm.currentTarget ).addClass( 'map__radiolineon' ).attr( 'tp' );
+            $('input[name=animal]').val( curType );
         }
 
 
