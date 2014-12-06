@@ -1,10 +1,10 @@
 define([
 
 	"backbone",
-	"jquery",
+	"underscore",
 	"async!http://maps.googleapis.com/maps/api/js?key=AIzaSyDr-WuoW28g6NfwUjOLdzUFV8YP6M4v_Rw&sensor=false"
 
-], function(Backbone, $, Google) {
+], function(Backbone, _, Google) {
     
 	return Backbone.View.extend({
 
@@ -17,12 +17,18 @@ define([
 		},
 
 		initialize: function() {
-			this.render();
+			
+			this.listenTo(this.collection, 'reset', this.render );
 		},
 
 		render: function() {
 
-			window.map = this.map = new window.google.maps.Map(this.el, this.option);
+			window.gmap = this.map = new window.google.maps.Map(this.el, this.option);
+
+			_.each(this.collection.models, function(marker) {
+				marker.add();
+			});
+		
 		}
 
 
