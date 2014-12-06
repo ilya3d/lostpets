@@ -10,8 +10,8 @@
     </div>
     <div class="map__panelline"></div>
     <div class="map__radiobox">
-        <div class="map__radioline"><ins></ins>Lost</div>
-        <div class="map__radioline map__radiolineon"><ins></ins>Found</div>
+        <div class="map__radioline {{#equal filter.type 1}}map__radiolineon{{/equal}}"><ins></ins>Lost</div>
+        <div class="map__radioline"><ins></ins>Found</div>
         <div class="map__radioline"><ins></ins>Search  new home</div>
     </div>
     <div class="js-search_btn map__btn"><button>search</button></div>
