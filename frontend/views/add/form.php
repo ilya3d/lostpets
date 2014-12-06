@@ -4,17 +4,21 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Description */
+/* @var $model \frontend\models\AddPointForm */
 /* @var $form ActiveForm */
 ?>
 <div class="add-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-        <?= $form->field($model, 'point_id') ?>
-        <?= $form->field($model, 'title') ?>
-        <?= $form->field($model, 'description') ?>
-        <?= $form->field($model->point->type, 'type') ?>
+        <?= $form->field($model, 'title')->textInput() ?>
+        <?= $form->field($model, 'description')->textarea() ?>
+        <?= $form->field($model , 'photo')->fileInput() ?>
+        <?= $form->field($model , 'type')->dropDownList(\common\models\Point::getTypeList()) ?>
+        <?= $form->field($model , 'animal')->dropDownList(\common\models\Animal::getAnimalList()) ?>
+        <?= $form->field($model , 'email')->textInput(); ?>
+        <?= $form->field($model , 'phone')->textInput(); ?>
+        <?= $form->field($model , 'point')->textInput(); ?>
 
         <div class="form-group">
             <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
@@ -22,3 +26,4 @@ use yii\widgets\ActiveForm;
     <?php ActiveForm::end(); ?>
 
 </div><!-- add-form -->
+
