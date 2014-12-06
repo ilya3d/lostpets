@@ -32,7 +32,6 @@ AppAsset::register($this);
             <div class="b-header">
                 <a href="/" class="header__logo"><img src="/images/logo.png" alt="" /></a>
                 <a href="/add/" class="header__btn">add new record</a>
-                <div class="header__login"><a href="#">Sign up</a><span class="header__logindot">/</span><a href="#">Login</a></div>
                 <div class="header__countbox">
                     <div class="header__text">Find your home pets:</div>
                     <div class="header__count"><img src="/images/counter.png" alt="" /></div>
