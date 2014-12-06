@@ -32,7 +32,7 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'gii' => 'gii',
-                'add' => 'add/index',
+                'add' => 'description/add',
                 'print/<hash:\w+>' => 'print/index',
                 '<cmd:\w+>/<action:\w+>'=>'<cmd>/<action>',
                 '<cmd:\w+>/<action:\w+>/<state:\w+>'=>'<cmd>/<action>/<state>',
