@@ -3,14 +3,14 @@ define(["backbone"], function(Backbone){
 	return Backbone.Model.extend({
 
 		defaults: {
-			position: null,
-			title: 'New marker'
+			position: null
+			
 		},
 
 		add: function() {
 
 			this.set({
-				position: window.gmap.getCenter(),
+				position: new window.google.maps.LatLng(this.get('lat'),this.get('lng')),
 				map: window.gmap
 			});
 

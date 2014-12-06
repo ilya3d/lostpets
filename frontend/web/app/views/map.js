@@ -48,11 +48,8 @@ define([
 		boundsChanged: function() {
 			var bounds = window.gmap.getBounds();
 			window.app.Filter.set({
-				x1: bounds.Fa.j,
-				y1: bounds.Fa.k,
-
-				x2: bounds.wa.j,
-				y2: bounds.wa.k
+				topleft:  [bounds.Fa.j, bounds.Fa.k],
+				botright: [bounds.wa.j, bounds.wa.k]
 			});
 
 		}
