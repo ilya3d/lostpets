@@ -54,7 +54,7 @@ class Point extends \yii\db\ActiveRecord
         ];
     }
 
-    public static function findPolygon($topleft,$topright,$botleft,$botright, $typeSet = [], $animalSet=[]){
+    public static function findPolygon($topleft,$botright, $typeSet = [], $animalSet=[]){
 
         // plz understand and forgive
         $sqlType = "";
@@ -64,18 +64,18 @@ class Point extends \yii\db\ActiveRecord
         }
 
         $sqlSet = "";
+
         if (is_array($animalSet) && count($animalSet)>1){
             array_walk($animalSet,function(&$item){$item = (int)$item;});
             $sqlSet = " and type IN (".implode(",",$animalSet ).")";
         }
-
         $result =  Yii::$app->db->createCommand("SELECT `point`.id,animal_id,type,user_id,`status`,created_at,X(coordinate) AS lng, Y(coordinate) AS lat FROM `point` INNER JOIN animal ON `animal`.`id` = animal_id  WHERE MBRWithin(`coordinate`,
                                         GeomFromText('
                                         Polygon((
                                         {$topleft[0]} {$topleft[1]},
-                                        {$topright[0]} {$topright[1]},
+                                        {$botright[0]} {$topleft[1]},
                                         {$botright[0]} {$botright[1]},
-                                        {$botleft[0]} {$botleft[1]},
+                                        {$topleft[0]} {$botright[1]},
                                         {$topleft[0]} {$topleft[1]}))')) = 1
                                         $sqlType
                                         $sqlSet
