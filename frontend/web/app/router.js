@@ -1,4 +1,4 @@
-define(["backbone","views/map","views/searchForm"], function(Backbone,Map,SearchForm) {
+define(["backbone","views/map","collections/markers","views/searchForm"], function(Backbone,Map, Markers,SearchForm,SearchForm) {
     
 	return Backbone.Router.extend({
 
@@ -12,9 +12,11 @@ define(["backbone","views/map","views/searchForm"], function(Backbone,Map,Search
 
 		index: function() {
 
-			new Map({ el: '#map' });
-			new SearchForm({ el: '#search' });
 
+			window.app.Collections.Markers = new Markers();
+			window.app.Collections.Markers.fetch();
+			window.app.Views.Map = new Map({ el: '#map', collection: window.app.Collections.Markers });
+            new SearchForm({ el: '#search' });
 		}
 
 
