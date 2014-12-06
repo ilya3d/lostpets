@@ -1,17 +1,20 @@
-define(["backbone","models/marker", "jquery"], function(Backbone, Marker, $) {
+define(["backbone","models/marker", "models/filter"], function(Backbone, Marker, Filter) {
 
 	return Backbone.Collection.extend({
-
+		filter: null,
 		model: Marker,
 		initialize: function() {
+			this.filter = window.app.Filter = new Filter();
 			this.fetch();
+
+			this.listenTo(this.filter, 'change', this.fetch);
 		},
 
 		fetch: function() {
 			var self = this;
-			$.ajax({
+			Backbone.$.ajax({
 				url: this.url,
-                filter: window.app.Filter.get(),
+                filter: window.app.Filter.attributes,
 				success: function( data ) {
 					
 					self.reset([
