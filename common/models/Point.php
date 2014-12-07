@@ -78,8 +78,8 @@ class Point extends \yii\db\ActiveRecord
     public static function findPolygon($topleft,$botright, $typeSet = [], $animalSet=[]){
 
         // plz understand and forgive
-        $sqlType = "";
-        if (is_array($typeSet)){
+        $sqlType = "and type IN (2,4,8)";
+        if (is_array($typeSet) && !empty($typeSet)){
             array_walk($typeSet,function(&$item){$item = (int)$item;});
             $sqlType = " and type IN (".implode(",",$typeSet ).")";
         }
@@ -88,7 +88,7 @@ class Point extends \yii\db\ActiveRecord
 
         if (is_array($animalSet)){
             array_walk($animalSet,function(&$item){$item = (int)$item;});
-            $sqlSet = " and type IN (".implode(",",$animalSet ).")";
+            $sqlSet = " and animal_id IN (".implode(",",$animalSet ).")";
         }
 
         $result =  Yii::$app->db->createCommand("SELECT `point`.id,animal_id,type,user_id,`status`,created_at,X(coordinate) AS lng, Y(coordinate) AS lat,
