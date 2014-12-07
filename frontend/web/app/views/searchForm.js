@@ -10,9 +10,9 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html", "views/s
 
         events: {
             "click .js-search_btn": "search",
+            "change .js-search-input": "search",
             "click .js-search_type": "srType",
             "click .js-search_animal": "srAnimal"
-           
         },
 
 
