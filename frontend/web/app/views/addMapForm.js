@@ -25,6 +25,7 @@ define([
 
 
 			this.listenTo(this.position,   'change', this.setCenter );
+			
 			this.initMap();
 
 		},
