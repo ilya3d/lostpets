@@ -30,7 +30,7 @@ class MapController extends Controller
 
         if ($filter->validate())
            echo json_encode(Point::findPolygon($filter->topleft,$filter->botright,$filter->type,$filter->animal));
-        else echo json_encode(['error'=>[$filter->firstErrors]]);
+        else echo json_encode([]);
 
         //$filter->topleft
 
