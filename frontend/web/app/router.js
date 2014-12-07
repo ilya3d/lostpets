@@ -14,6 +14,8 @@ define(["backbone","views/map","collections/markers","views/searchForm","views/a
 		add: function() {
 
 			$('#addpointform-point').hide();
+			$('.field-addpointform-point .help-block').css('height', '400px');
+			var map = new mapForm({ el: '.field-addpointform-point .help-block' });
 
 		},
 
