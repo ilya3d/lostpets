@@ -51,10 +51,8 @@ define([ "backbone",
                 if (status == google.maps.GeocoderStatus.OK) {
                   window.gmap.setCenter(results[0].geometry.location);
                 
-                } else {
-                  
                 }
-              });
+            });
             
 
         },
