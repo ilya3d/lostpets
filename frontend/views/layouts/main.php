@@ -27,6 +27,9 @@ AppAsset::register($this);
 </head>
 <body>
     <?php $this->beginBody() ?>
+    <div class="map__wrap">
+        <div class="map__wrap2 js-search"></div>
+    </div>
     <div class="b-container">
         <div class="container__rama">
             <div class="b-header">

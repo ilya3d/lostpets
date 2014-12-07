@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use common\models\Description;
 use yii\web\Controller;
+use yii\web\HttpException;
 
 class PrintController extends Controller
 {
@@ -16,26 +17,10 @@ class PrintController extends Controller
         $description = new Description;
         $item = $description->findOne(['hash' => $hash]);
 
+        if(is_null($item))
+            throw new HttpException(404);
+
         echo $this->render('index', ['description' => $item]);
-
-
-//        $qrCode = new QrCode();
-//        $qrCode->setText("Life is too short to be generating QR codes");
-//        $qrCode->setSize(150);
-//        $qrCode->setPadding(10);
-//        $qrCode->save('filepath.png');
-
-
-//        $model = new Description();
-//
-//        if ($model->load(\Yii::$app->request->post()) && $model->save()) {
-//            return $this->redirect(['form', 'id' => $model->id]);
-//        } else {
-//            return $this->render('form', [
-//                'model' => $model,
-//            ]);
-//        }
-
     }
 
 }
