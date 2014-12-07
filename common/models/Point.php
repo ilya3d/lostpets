@@ -93,7 +93,7 @@ class Point extends \yii\db\ActiveRecord
         }
 
         $result =  Yii::$app->db->createCommand("SELECT `point`.id,animal_id,type,user_id,`status`,created_at,X(coordinate) AS lng, Y(coordinate) AS lat,
-        description.title as d_title, description.description as d_text,description.phone as d_phone,description.email as d_email,CONCAT('/uploads/',description.photo)  as d_photo   FROM `point` INNER JOIN description ON description.point_id = `point`.id INNER JOIN animal ON `animal`.`id` = animal_id  WHERE MBRWithin(`coordinate`,
+        description.title as d_title, description.description as d_text,description.phone as d_phone,description.email as d_email,CONCAT('/uploads/',description.photo)  as d_photo,description.hash as d_hash   FROM `point` INNER JOIN description ON description.point_id = `point`.id INNER JOIN animal ON `animal`.`id` = animal_id  WHERE MBRWithin(`coordinate`,
                                         GeomFromText('
                                         Polygon((
                                         {$topleft[0]} {$topleft[1]},

@@ -9,20 +9,5 @@
         <?php endif ?>
         <p><?= $description->description ?></p>
     </div>
-
-    <?php if($description->phone): ?>
-        <div class="b-phonebox">
-
-            <div class="phonebox__item"><span>тел.: <?= $description->phone ?></span></div>
-            <div class="phonebox__item"><span>тел.: <?= $description->phone ?></span></div>
-            <div class="phonebox__item"><span>тел.: <?= $description->phone ?></span></div>
-            <div class="phonebox__item"><span>тел.: <?= $description->phone ?></span></div>
-            <div class="phonebox__item"><span>тел.: <?= $description->phone ?></span></div>
-            <div class="phonebox__item"><span>тел.: <?= $description->phone ?></span></div>
-            <div class="phonebox__item"><span>тел.: <?= $description->phone ?></span></div>
-            <div class="phonebox__item"><span>тел.: <?= $description->phone ?></span></div>
-            <div class="phonebox__item"><span>тел.: <?= $description->phone ?></span></div>
-
-        </div>
-    <? endif ?>
+    <div class="phonebox__item"><span>tel.: <?= $description->phone ?></span></div>
 </div>
