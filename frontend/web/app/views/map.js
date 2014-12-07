@@ -43,6 +43,9 @@ define([
 		render: function() {
 
             var h = document.documentElement.clientHeight - 115 - 42;
+            if ( h < 480 )
+                h = 480;
+
             $('#map').height( h );
 
 			_.each(this.collection.models, function(marker) {
