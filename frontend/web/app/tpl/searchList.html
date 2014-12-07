@@ -3,7 +3,7 @@
     <div class="map__listwrap">
         {{#each items}}
         <div class="map__listitem map__listitem{{this.type}}">
-            <div class="map__listimg"><a href="#"><img src="{{this.d_photo}}" alt="{{this.d_title}}" style="max-width: 90px; max-height: 90px;" /></a></div>
+            <div class="map__listimg"><a href="#"><img src="{{#if this.d_photo}}{{this.d_photo}}{{else}}/images/empty.png{{/if}}" alt="{{this.d_title}}" style="max-width: 90px; max-height: 90px;" /></a></div>
             <div class="map__listtitle"><a href="#" class="js-pnt_title" lng="{{this.lng}}" lat="{{this.lat}}">{{this.d_title}}</a></div>
             <div class="map__listcont">
                 <p>phone.: {{this.d_phone}}</p>
