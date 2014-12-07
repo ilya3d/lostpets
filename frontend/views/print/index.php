@@ -5,7 +5,7 @@
         <p class="title"><?= $description->title ?></p>
         <div class="quercode"><img src="<?= \Yii::$app->getUrlManager()->createAbsoluteUrl('/qr/'.$description->qrcode) ?>"></div>
         <?php if($description->photo): ?>
-        <p><img src="<?= \Yii::$app->getUrlManager()->createAbsoluteUrl('/uploads/'.$description->photo) ?>" alt="" /></p>
+            <p><img src="<?= \Yii::$app->getUrlManager()->createAbsoluteUrl('/uploads/'.$description->photo) ?>" alt="" /></p>
         <?php endif ?>
         <p><?= $description->description ?></p>
         <?php if($description->phone):?>
