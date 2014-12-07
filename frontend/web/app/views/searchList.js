@@ -6,6 +6,7 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchList.html" ],
             el: '.js-search_list',
             template: '',
             cur_pos: 0,
+            cur_step: 5,
 
             events: {
                 "click .js-sl_back": "goBack",
@@ -30,26 +31,50 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchList.html" ],
 
             render: function() {
 
-                var cur_coll = window.app.Collections.Markers.slice( this.cur_pos, this.cur_pos + 5 );
-                var items = [];
-                _.each( cur_coll, function( row ) {
-                    items.push( row.toJSON() );
-                });
+                var cnt = window.app.Collections.Markers.length;
 
-                //filter: app.Filter.attributes
-                $('.js-search_form').addClass( 'map__searchbox2' );
-                var tpl = Handlebars.compile( this.template );
-                this.$el.html( tpl( {
-                    items: items
-                } ) );
+                if ( cnt ) {
+                    var cur_coll = window.app.Collections.Markers.slice( this.cur_pos, this.cur_pos + this.cur_step );
+                    var items = [];
+                    _.each( cur_coll, function( row ) {
+                        items.push( row.toJSON() );
+                    });
+
+                    $('.js-search_form').addClass( 'map__searchbox2' );
+                    var tpl = Handlebars.compile( this.template );
+                    this.$el.html( tpl( {
+                        items: items,
+                        btn_back: (this.cur_pos - this.cur_step < 1),
+                        btn_next: (this.cur_pos + this.cur_step >= cnt)
+                    } ) );
+                } else {
+                    $('.js-search_form').removeClass( 'map__searchbox2' );
+                    this.$el.html( '' );
+                }
+
+
             },
 
             goBack: function() {
-               // todo
+                var cnt = window.app.Collections.Markers.length;
+                if ( this.cur_pos - this.cur_step < 1 ) {
+                    this.cur_pos = 0;
+                } else {
+                    this.cur_pos = this.cur_pos - this.cur_step;
+                }
+                this.render();
             },
 
             goNext: function() {
-                // todo
+                var cnt = window.app.Collections.Markers.length;
+                if ( cnt <= this.cur_pos + this.cur_step  ) {
+                    this.cur_pos = cnt - this.cur_step;
+                    if ( this.cur_pos < 0 )
+                        this.cur_pos = 0;
+                } else {
+                    this.cur_pos = this.cur_pos + this.cur_step;
+                }
+                this.render();
             }
 
 
