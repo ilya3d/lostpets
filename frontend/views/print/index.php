@@ -8,20 +8,26 @@
         <p><img src="<?= \Yii::$app->getUrlManager()->createAbsoluteUrl('/uploads/'.$description->photo) ?>" alt="" /></p>
         <?php endif ?>
         <p><?= $description->description ?></p>
+        <?php if($description->phone):?>
+        <p>tel.: <?= $description->phone ?></p>
+        <?php endif ?>
+        <?php if($description->email): ?>
+        <p>email: <?= $description->email ?></p>
+        <?php endif ?>
     </div>
 
     <?php if($description->phone): ?>
     <div class="b-phonebox">
 
-        <div class="phonebox__item"><span>тел.: <?= $description->phone ?></span></div>
-        <div class="phonebox__item"><span>тел.: <?= $description->phone ?></span></div>
-        <div class="phonebox__item"><span>тел.: <?= $description->phone ?></span></div>
-        <div class="phonebox__item"><span>тел.: <?= $description->phone ?></span></div>
-        <div class="phonebox__item"><span>тел.: <?= $description->phone ?></span></div>
-        <div class="phonebox__item"><span>тел.: <?= $description->phone ?></span></div>
-        <div class="phonebox__item"><span>тел.: <?= $description->phone ?></span></div>
-        <div class="phonebox__item"><span>тел.: <?= $description->phone ?></span></div>
-        <div class="phonebox__item"><span>тел.: <?= $description->phone ?></span></div>
+        <div class="phonebox__item"><span>tel.: <?= $description->phone ?></span></div>
+        <div class="phonebox__item"><span>tel.: <?= $description->phone ?></span></div>
+        <div class="phonebox__item"><span>tel.: <?= $description->phone ?></span></div>
+        <div class="phonebox__item"><span>tel.: <?= $description->phone ?></span></div>
+        <div class="phonebox__item"><span>tel.: <?= $description->phone ?></span></div>
+        <div class="phonebox__item"><span>tel.: <?= $description->phone ?></span></div>
+        <div class="phonebox__item"><span>tel.: <?= $description->phone ?></span></div>
+        <div class="phonebox__item"><span>tel.: <?= $description->phone ?></span></div>
+        <div class="phonebox__item"><span>tel.: <?= $description->phone ?></span></div>
 
     </div>
     <? endif ?>
