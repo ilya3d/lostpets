@@ -105,6 +105,14 @@ class Point extends \yii\db\ActiveRecord
                                         $sqlSet
                                         LIMIT 0,100")->queryAll();
 
+        foreach($result as &$item){
+
+            if (!is_file(Yii::getAlias('@frontend').'/web/'.$item['d_photo'])){
+                $item['d_photo'] = '';
+            }
+
+        }
+
         return $result;
     }
 
