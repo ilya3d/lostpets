@@ -42,7 +42,7 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchList.html" ],
                         items.push( row.toJSON() );
                     });
 
-                    $('.js-search_form').addClass( 'map__searchbox2' );
+                    //$('.js-search_form').addClass( 'map__searchbox2' );
                     var tpl = Handlebars.compile( this.template );
                     this.$el.html( tpl( {
                         items: items,
@@ -50,7 +50,7 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchList.html" ],
                         btn_next: (this.cur_pos + this.cur_step >= cnt)
                     } ) );
                 } else {
-                    $('.js-search_form').removeClass( 'map__searchbox2' );
+                    //$('.js-search_form').removeClass( 'map__searchbox2' );
                     this.$el.html( '' );
                 }
 
