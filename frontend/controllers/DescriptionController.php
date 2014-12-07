@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use common\models\Description;
 use frontend\models\AddPointForm;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
