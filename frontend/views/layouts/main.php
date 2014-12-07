@@ -12,9 +12,7 @@ use frontend\widgets\Alert;
 
 //\yii\bootstrap\BootstrapAsset::register($this);
 AppAsset::register($this);
-
-
-
+$currentAction = \Yii::$app->controller->id.'/'.\Yii::$app->controller->action->id;
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -35,7 +33,9 @@ AppAsset::register($this);
         <div class="container__rama">
             <div class="b-header">
                 <a href="/" class="header__logo"><img src="/images/logo.png" alt="" /></a>
+                <?php if($currentAction != 'description/add'): ?>
                 <a href="/add" class="header__btn">add new record</a>
+                <?php endif ?>
                 <div class="header__countbox">
                     <div class="header__text">Pets found their home:</div>
                     <div class="header__count"><?= CountPets::widget(); ?></div>
