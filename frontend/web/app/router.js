@@ -1,13 +1,19 @@
-define(["backbone","views/map","collections/markers","views/searchForm"], function(Backbone,Map, Markers,SearchForm) {
+define(["backbone","views/map","collections/markers","views/searchForm","views/addMapForm"], function(Backbone,Map, Markers,SearchForm, mapForm) {
     
 	return Backbone.Router.extend({
 
 		
 		routes: {
             "": "index",
-            "map": "index"
+            "map": "index",
+            "add": "add"
 		},
 		initialize: function() {
+
+		},
+		add: function() {
+
+			$('#addpointform-point').hide();
 
 		},
 
@@ -19,6 +25,7 @@ define(["backbone","views/map","collections/markers","views/searchForm"], functi
 			window.app.Views.Map = new Map({ el: '#map', collection: window.app.Collections.Markers });
 
             new SearchForm( { el: '.js-search' } );
+
 		}
 
 
