@@ -27,7 +27,7 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchList.html" ],
                 //});
 
                 this.template = html;
-                this.listenTo( window.app.Collections.Markers, 'change', this.render );
+                this.listenTo( window.app.Collections.Markers, 'reset', this.render );
             },
 
             render: function() {

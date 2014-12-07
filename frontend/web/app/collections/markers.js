@@ -19,7 +19,6 @@ define(["backbone","models/marker", "models/filter", "underscore"], function(Bac
                 data: window.app.Filter.attributes,
 				success: function( data ) {
 					_.each(self.models, function(marker) { marker.del(); });
-
 					self.reset(JSON.parse(data));
 
 				}
