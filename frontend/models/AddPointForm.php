@@ -91,7 +91,7 @@ class AddPointForm extends Model
         }
 
         $qrCode = new QrCode();
-        $qrCode->setText("/detail/".$description->id);
+        $qrCode->setText($_SERVER['HTTP_HOST']."/detail/".$description->id);
         $qrCode->setSize(150);
         $qrCode->setPadding(10);
 

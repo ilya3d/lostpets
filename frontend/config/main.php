@@ -40,6 +40,7 @@ return [
                 'add' => 'description/add',
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'rest','pluralize'=>false ],
                 'print/<hash:\w+>' => 'print/index',
+                'detail/<id:\d+>' => 'description/view',
                 '<cmd:\w+>/<action:\w+>'=>'<cmd>/<action>',
                 '<cmd:\w+>/<action:\w+>/<state:\w+>'=>'<cmd>/<action>/<state>',
                 '<cmd:\w+>/<action:\w+>/<state:\w+>/<sid:\w+>'=>'<cmd>/<action>/<state>/<sid>',
