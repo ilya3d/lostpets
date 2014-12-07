@@ -28,7 +28,12 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchList.html" ],
                 //});
 
                 this.template = html;
-                this.listenTo( window.app.Collections.Markers, 'reset', this.render );
+                this.listenTo( window.app.Collections.Markers, 'reset', this.reset );
+            },
+
+            reset: function() {
+                this.cur_pos = 0;
+                this.render();
             },
 
             render: function() {
@@ -42,15 +47,13 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchList.html" ],
                         items.push( row.toJSON() );
                     });
 
-                    //$('.js-search_form').addClass( 'map__searchbox2' );
                     var tpl = Handlebars.compile( this.template );
                     this.$el.html( tpl( {
                         items: items,
-                        btn_back: (this.cur_pos - this.cur_step < 1),
+                        btn_back: (this.cur_pos < 1),
                         btn_next: (this.cur_pos + this.cur_step >= cnt)
                     } ) );
                 } else {
-                    //$('.js-search_form').removeClass( 'map__searchbox2' );
                     this.$el.html( '' );
                 }
 
