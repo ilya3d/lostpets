@@ -4,7 +4,7 @@
         {{#each items}}
         <div class="map__listitem map__listitem{{this.type}}">
             <div class="map__listimg"><a href="#"><img src="{{this.d_photo}}" alt="{{this.d_title}}" /></a></div>
-            <div class="map__listtitle"><a href="#">{{this.d_title}}</a></div>
+            <div class="map__listtitle"><a href="#" class="js-pnt_title" lng="{{this.lng}}" lat="{{this.lat}}">{{this.d_title}}</a></div>
             <div class="map__listcont">
                 <p>phone.: {{this.d_phone}}</p>
                 <p>{{this.d_text}}</p>
