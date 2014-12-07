@@ -12,7 +12,7 @@
         <p>tel.: <?= $description->phone ?></p>
         <?php endif ?>
         <?php if($description->email): ?>
-        <p>email: <?= $description->email ?></p>
+        <p>e-mail: <?= $description->email ?></p>
         <?php endif ?>
     </div>
 
