@@ -72,8 +72,8 @@ class AddPointForm extends Model
         $point = new Point();
         $aPoint =  explode(" ",$this->point);
         if (count($aPoint)==2){
-            $point->lat = (float)$aPoint[0];
-            $point->lng = (float)$aPoint[1];
+            $point->lat = (float)$aPoint[1];
+            $point->lng = (float)$aPoint[0];
         } else new ServerErrorHttpException("Bad point");
 
         $point->animal_id = $this->animal;
