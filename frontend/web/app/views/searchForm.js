@@ -1,8 +1,11 @@
-define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html" ], function(Backbone, $, Handlebars, html) {
+define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html", "views/searchList" ],
+    function(Backbone, $, Handlebars, html, SearchList ) {
 
     return Backbone.View.extend({
 
         template: '',
+
+        showList: {},
 
         events: {
             "click .js-search_btn": "search",
@@ -31,6 +34,8 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html" ], functi
 
             var tpl = Handlebars.compile( this.template );
             this.$el.html( tpl( { filter: app.Filter.attributes } ) );
+
+            this.showList = new SearchList( {} );
         },
 
         search: function() {
@@ -40,6 +45,7 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html" ], functi
                 animal: $('input[name=animal]').val().split(',')
             });
 
+            this.showList.refresh();
         },
 
         srType: function( itm ) {
@@ -52,9 +58,6 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html" ], functi
         },
 
         srAnimal: function( itm ) {
-            //$('.js-search_animal').removeClass( 'map__radiolineon' );
-            //var curType =  $( itm.currentTarget ).addClass( 'map__radiolineon' ).attr( 'tp' );
-            //$('input[name=animal]').val( curType );
             var res = [];
             $( itm.currentTarget).toggleClass( 'map__radiobtnon' );
             $('.map__radiobtnon').each( function() {

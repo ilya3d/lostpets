@@ -1,0 +1,16 @@
+<div class="map__listbox">
+    <div class="map__arrow js-sl_back">Back</div>
+    <div class="map__listwrap">
+        {{#each items}}
+        <div class="map__listitem map__listitem{{point.type}}">
+            <div class="map__listimg"><a href="#"><img src="{{photo}}" alt="{{title}}" /></a></div>
+            <div class="map__listtitle"><a href="#">{{title}}</a></div>
+            <div class="map__listcont">
+                <p>phone.: {{phone}}</p>
+                <p>{{description}}</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="map__arrow js-sl_next">Next</div>
+</div>
