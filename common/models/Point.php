@@ -43,9 +43,9 @@ class Point extends \yii\db\ActiveRecord
 
     public static function  getTypeList(){
         return [
-            2 => 'Lost',
-            4 => 'Found',
-            8 => 'Search new home'
+            2 => "I've lost my pet",
+            4 => "I've found a pet",
+            8 => 'My pet needs a new home'
         ];
     }
 
