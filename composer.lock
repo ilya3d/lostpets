@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "93ba06c7f55c134fcfc2a4a38a89049e",
+    "hash": "bc4834c1399c30e0d3167a896e5aa5a9",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -208,7 +208,8 @@
                     "script/",
                     "test/"
                 ]
-            }
+            },
+            "time": "2014-12-04 17:15:44"
         },
         {
             "name": "cebe/markdown",
@@ -269,6 +270,56 @@
                 "markdown-extra"
             ],
             "time": "2014-11-07 12:53:11"
+        },
+        {
+            "name": "endroid/qrcode",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/endroid/QrCode.git",
+                "reference": "bd1c79c207ceba9432134794d67203ff7f26c7c4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/endroid/QrCode/zipball/bd1c79c207ceba9432134794d67203ff7f26c7c4",
+                "reference": "bd1c79c207ceba9432134794d67203ff7f26c7c4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Endroid": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen van den Enden",
+                    "email": "info@endroid.nl",
+                    "homepage": "http://endroid.nl/"
+                }
+            ],
+            "description": "Endroid QR Code",
+            "homepage": "https://github.com/endroid/QrCode",
+            "keywords": [
+                "code",
+                "endroid",
+                "qr",
+                "qrcode"
+            ],
+            "time": "2014-09-30 22:17:32"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -373,12 +424,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "2ae342bc0ddd1e95624e0f29d53bbc3b601e623f"
+                "reference": "72eee4596b0fa6ed8fd4d68c53541542995e7394"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/2ae342bc0ddd1e95624e0f29d53bbc3b601e623f",
-                "reference": "2ae342bc0ddd1e95624e0f29d53bbc3b601e623f",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/72eee4596b0fa6ed8fd4d68c53541542995e7394",
+                "reference": "72eee4596b0fa6ed8fd4d68c53541542995e7394",
                 "shasum": ""
             },
             "require": {
@@ -453,7 +504,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2014-12-04 20:11:54"
+            "time": "2014-12-06 13:54:43"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -461,12 +512,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-                "reference": "14c09f022ddfd0ffe74d8668ad88eb967b8145d5"
+                "reference": "f632f47746ca4ea84a77e9ee631e997e027de0b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/14c09f022ddfd0ffe74d8668ad88eb967b8145d5",
-                "reference": "14c09f022ddfd0ffe74d8668ad88eb967b8145d5",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/f632f47746ca4ea84a77e9ee631e997e027de0b3",
+                "reference": "f632f47746ca4ea84a77e9ee631e997e027de0b3",
                 "shasum": ""
             },
             "require": {
@@ -499,7 +550,7 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2014-12-02 18:33:48"
+            "time": "2014-12-06 14:36:42"
         },
         {
             "name": "yiisoft/yii2-composer",
