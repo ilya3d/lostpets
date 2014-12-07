@@ -1,4 +1,9 @@
-define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html" ], function(Backbone, $, Handlebars, html) {
+define([ "backbone", 
+         "jquery",
+         "handlebars", 
+         "text!tpl/searchForm.html",
+         "async!http://maps.googleapis.com/maps/api/js?key=AIzaSyDr-WuoW28g6NfwUjOLdzUFV8YP6M4v_Rw&sensor=false"
+         ], function(Backbone, $, Handlebars, html, Google) {
 
     return Backbone.View.extend({
 
@@ -8,6 +13,7 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html" ], functi
             "click .js-search_btn": "search",
             "click .js-search_type": "srType",
             "click .js-search_animal": "srAnimal"
+           
         },
 
 
@@ -39,6 +45,17 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html" ], functi
                 type: $('input[name=type]').val().split(','),
                 animal: $('input[name=animal]').val().split(',')
             });
+           
+            var geocoder = new window.google.maps.Geocoder();
+            geocoder.geocode( { 'address':  $('.js-search-input').val()}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                  window.gmap.setCenter(results[0].geometry.location);
+                
+                } else {
+                  
+                }
+              });
+            
 
         },
 
