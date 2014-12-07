@@ -54,8 +54,6 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html", "views/s
                 
                 }
             });
-            
-            this.showList.render();
         },
 
         srType: function( itm ) {
@@ -68,11 +66,13 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html", "views/s
         },
 
         srAnimal: function( itm ) {
-            var res = [];
-            $( itm.currentTarget).toggleClass( 'map__radiobtnon' );
-            $('.map__radiobtnon').each( function() {
-                res.push( $(this).attr( 'tp' ) );
+            var res = parseInt( $( itm.currentTarget).attr( 'tp' ) );
+            [1,2,3].forEach( function( i ) {
+                if ( i != res ) {
+                    $( '.map__radiobtnon' + i ).removeClass( 'map__radiobtnon' + i );
+                }
             });
+            $( itm.currentTarget ).addClass( 'map__radiobtnon' + res );
             $('input[name=animal]').val( res );
         }
 

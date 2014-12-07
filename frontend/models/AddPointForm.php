@@ -32,11 +32,11 @@ class AddPointForm extends Model
     {
         return [
             // name, email, subject and body are required
-            [['title', 'description', 'subject', 'body','type','animal','phone'], 'required'],
+            [['title', 'description', 'subject', 'body','type','animal','phone','point'], 'required'],
             // email has to be a valid email address
             ['photo','file','extensions' => ['png', 'jpg', 'jpeg' , 'gif'],'mimeTypes'=>'image/jpeg, image/png, image/gif'],
             ['email','email'],
-            [['type','animal'],'integer']
+            [['type','animal'],'integer'],
         ];
     }
 
@@ -70,13 +70,15 @@ class AddPointForm extends Model
         $description->photo = $filename;
 
         $point = new Point();
+        $aPoint =  explode(" ",$this->point);
+        if (count($aPoint)==2){
+            $point->lat = (float)$aPoint[0];
+            $point->lng = (float)$aPoint[1];
+        } else new ServerErrorHttpException("Bad point");
+
         $point->animal_id = $this->animal;
 
         $point->type = $this->type;
-
-        $point->lat = 1;
-        $point->lng = 1;
-
         $point->status = 0;
 
         $idPoint = $point->save();
@@ -91,7 +93,7 @@ class AddPointForm extends Model
         }
 
         $qrCode = new QrCode();
-        $qrCode->setText($_SERVER['HTTP_HOST']."/detail/".$description->id);
+        $qrCode->setText('http://'.$_SERVER['HTTP_HOST']."/detail/".$description->id);
         $qrCode->setSize(110);
         $qrCode->setPadding(10);
 

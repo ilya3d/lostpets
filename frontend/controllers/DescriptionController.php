@@ -12,7 +12,7 @@ class DescriptionController extends Controller
 {
 
     public function actionView($id){
-        return $this->render('view', [
+        return $this->renderPartial('view', [
             'description' => $this->findModel($id),
         ]);
     }

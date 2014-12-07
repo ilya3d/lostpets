@@ -4,7 +4,7 @@ define(["backbone"], function(Backbone){
 
 		defaults: {
 	        type: [],
-	        animal: []
+	        animal: 1
 		},
 		initialize: function() {
 

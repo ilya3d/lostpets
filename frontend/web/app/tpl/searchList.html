@@ -1,5 +1,5 @@
 <div class="map__listbox">
-    <div class="map__arrow js-sl_back">Back</div>
+    <div class="map__arrow js-sl_back"{{#if btn_back}} style="display: none"{{/if}}>Back</div>
     <div class="map__listwrap">
         {{#each items}}
         <div class="map__listitem map__listitem{{this.type}}">
@@ -12,5 +12,5 @@
         </div>
         {{/each}}
     </div>
-    <div class="map__arrow js-sl_next">Next</div>
+    <div class="map__arrow js-sl_next"{{#if btn_next}} style="display: none"{{/if}}>Next</div>
 </div>
