@@ -34,6 +34,7 @@ define([
 
 			window.google.maps.event.addListener(window.gmap,'dragend', this.boundsChanged);
 			window.google.maps.event.addDomListener(window,'resize', this.render);
+			window.google.maps.event.addListenerOnce(window.gmap, 'idle', this.boundsChanged);
 					
 		},
 		setCenter: function() {
