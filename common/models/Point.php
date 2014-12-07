@@ -84,11 +84,14 @@ class Point extends \yii\db\ActiveRecord
             $sqlType = " and type IN (".implode(",",$typeSet ).")";
         }
 
+        Yii::trace($typeSet);
+        Yii::trace($animalSet);
+
         $sqlSet = "";
 
         if (is_array($animalSet)){
             array_walk($animalSet,function(&$item){$item = (int)$item;});
-            $sqlSet = " and type IN (".implode(",",$animalSet ).")";
+            $sqlSet = " and animal_id IN (".implode(",",$animalSet ).")";
         }
 
         $result =  Yii::$app->db->createCommand("SELECT `point`.id,animal_id,type,user_id,`status`,created_at,X(coordinate) AS lng, Y(coordinate) AS lat,
