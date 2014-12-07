@@ -3,11 +3,13 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchList.html", "collect
 
         return Backbone.View.extend({
 
+            el: '.js-search_list',
             template: '',
             collection: {},
 
             events: {
-                //"click .js-search_btn": "search",
+                "click .js-sl_back": "goBack",
+                "click .js-sl_next": "goNext"
             },
 
 
@@ -25,20 +27,28 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchList.html", "collect
 
                 this.collection = new coll();
                 this.template = html;
-                this.listenTo( this.collection, 'change', this.render );
+                this.listenTo( this.collection, 'all', this.render );
             },
 
             render: function() {
-
                 //filter: app.Filter.attributes
-
+                $('.js-search_form').addClass( 'map__searchbox2' );
                 var tpl = Handlebars.compile( this.template );
+                console.log( this.collection.toJSON() );
                 this.$el.html( tpl( { items: this.collection.toJSON() } ) );
             },
 
             refresh: function() {
 
                 this.collection.fetch();
+            },
+
+            goBack: function() {
+               // todo
+            },
+
+            goNext: function() {
+                // todo
             }
 
 

@@ -27,7 +27,6 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html", "views/s
             });
 
             this.template = html;
-            this.showList = new SearchList( { el: '.js-search_list' } );
             this.render();
         },
 
@@ -35,6 +34,8 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html", "views/s
 
             var tpl = Handlebars.compile( this.template );
             this.$el.html( tpl( { filter: app.Filter.attributes } ) );
+
+            this.showList = new SearchList( {} );
         },
 
         search: function() {
