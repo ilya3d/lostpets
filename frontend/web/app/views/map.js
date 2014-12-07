@@ -32,6 +32,7 @@ define([
 			this.option.center = new window.google.maps.LatLng(this.position.get('lat'), this.position.get('lng'));		
 			window.gmap = this.map = new window.google.maps.Map(this.el, this.option);
 			window.google.maps.event.addListener(window.gmap,'dragend', this.boundsChanged);
+			window.google.maps.event.addDomListener(window,'resize', this.render);
 					
 		},
 		setCenter: function() {
