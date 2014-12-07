@@ -23,6 +23,7 @@ define([
 			this.locationMarker = null;
 			this.position = new Position();
 
+
 			this.listenTo(this.position,   'change', this.setCenter );
 			this.initMap();
 
@@ -30,10 +31,22 @@ define([
 		initMap: function() {
 			this.option.center = new window.google.maps.LatLng(this.position.get('lat'), this.position.get('lng'));	
 			window.mapform = this.map = new window.google.maps.Map(this.el, this.option);
+			window.google.maps.event.addListener(window.mapform, 'click', this.setMarker);
 					
 		},
 		setCenter: function() {
 			window.mapform.setCenter(new window.google.maps.LatLng(this.position.get('lat'), this.position.get('lng')))
+		},
+
+		setMarker: function(p) {
+			
+			if (this.m)  this.m.setMap(null);
+			this.m = new window.google.maps.Marker({
+				position: new window.google.maps.LatLng(p.latLng.k,p.latLng.B),
+				map: window.mapform
+			});
+			$('#addpointform-point').val(p.latLng.k+" "+p.latLng.B);
+
 		},
 
 		render: function() {
