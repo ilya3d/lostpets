@@ -79,14 +79,14 @@ class Point extends \yii\db\ActiveRecord
 
         // plz understand and forgive
         $sqlType = "";
-        if (is_array($typeSet) && count($typeSet)>1){
+        if (is_array($typeSet)){
             array_walk($typeSet,function(&$item){$item = (int)$item;});
             $sqlType = " and type IN (".implode(",",$typeSet ).")";
         }
 
         $sqlSet = "";
 
-        if (is_array($animalSet) && count($animalSet)>1){
+        if (is_array($animalSet)){
             array_walk($animalSet,function(&$item){$item = (int)$item;});
             $sqlSet = " and type IN (".implode(",",$animalSet ).")";
         }
