@@ -82,7 +82,7 @@ class Description extends \yii\db\ActiveRecord
 
     public function getPoint()
     {
-        return $this->hasOne(Point::className(), ['id' => 'point_id']);
+        return $this->hasOne(Point::className(), ['id' => 'point_id'])->select(['id,animal_id,type,user_id,`status`,created_at,X(coordinate) AS lng, Y(coordinate) AS lat']);
     }
 
 }

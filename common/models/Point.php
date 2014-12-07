@@ -34,6 +34,8 @@ class Point extends \yii\db\ActiveRecord
             'type',
             'user_id',
             'status',
+            'lng',
+            'lat'
         ];
 
     }
