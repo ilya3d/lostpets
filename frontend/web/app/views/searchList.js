@@ -29,30 +29,38 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchList.html" ],
                 this.template = html;
             },
 
-            render: function() {console.log(this.cur_pos);
+            render: function() {
 
-                var cur_coll = window.app.Collections.Markers.slice( this.cur_pos, this.cur_pos + this.cur_step );
-                var items = [];
-                _.each( cur_coll, function( row ) {
-                    items.push( row.toJSON() );
-                });
+                var cnt = window.app.Collections.Markers.length;
 
-                //filter: app.Filter.attributes
-                $('.js-search_form').addClass( 'map__searchbox2' );
-                var tpl = Handlebars.compile( this.template );
-                this.$el.html( tpl( {
-                    items: items
-                } ) );
+                if ( cnt ) {
+                    var cur_coll = window.app.Collections.Markers.slice( this.cur_pos, this.cur_pos + this.cur_step );
+                    var items = [];
+                    _.each( cur_coll, function( row ) {
+                        items.push( row.toJSON() );
+                    });
+
+                    $('.js-search_form').addClass( 'map__searchbox2' );
+                    var tpl = Handlebars.compile( this.template );
+                    this.$el.html( tpl( {
+                        items: items,
+                        btn_back: (this.cur_pos - this.cur_step < 1),
+                        btn_next: (this.cur_pos + this.cur_step >= cnt)
+                    } ) );
+                } else {
+                    $('.js-search_form').removeClass( 'map__searchbox2' );
+                    this.$el.html( '' );
+                }
+
+
             },
 
             goBack: function() {
                 var cnt = window.app.Collections.Markers.length;
                 if ( this.cur_pos - this.cur_step < 1 ) {
                     this.cur_pos = 0;
-                    $('.js-sl_back').hide();
                 } else {
                     this.cur_pos = this.cur_pos - this.cur_step;
-                    $('.js-sl_back').show();
                 }
                 this.render();
             },
@@ -63,10 +71,8 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchList.html" ],
                     this.cur_pos = cnt - this.cur_step;
                     if ( this.cur_pos < 0 )
                         this.cur_pos = 0;
-                    $('.js-sl_next').hide();
                 } else {
                     this.cur_pos = this.cur_pos + this.cur_step;
-                    $('.js-sl_next').show();
                 }
                 this.render();
             }
