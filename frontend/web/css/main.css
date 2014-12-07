@@ -358,13 +358,13 @@ a:hover {
 .b-map .map__listitem {
     margin-bottom: 20px;
 }
-.b-map .map__listitem1 {
+.b-map .map__listitem2 {
     border-right: 4px solid #ef5b39;
 }
-.b-map .map__listitem2 {
+.b-map .map__listitem4 {
     border-right: 4px solid #5dcb32;
 }
-.b-map .map__listitem3 {
+.b-map .map__listitem8 {
     border-right: 4px solid #39a8ef;
 }
 .b-map .map__listitem:after {
