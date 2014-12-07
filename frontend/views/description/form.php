@@ -20,10 +20,10 @@ use yii\widgets\ActiveForm;
         <?= $form->field($model , 'animal')->dropDownList(\common\models\Animal::getAnimalList()) ?>
         <?= $form->field($model , 'email')->textInput()->label('E-mail'); ?>
         <?= $form->field($model , 'phone')->textInput(); ?>
-        <?= $form->field($model , 'point')->textInput(); ?>
+        <?= $form->field($model , 'point')->textInput(['readonly' => "readonly"]); ?>
 
         <div class="form-group">
-            <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
+            <?= Html::submitButton('Add new point', ['class' => 'btn btn-primary']) ?>
         </div>
     <?php ActiveForm::end(); ?>
 
