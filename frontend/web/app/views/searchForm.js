@@ -1,3 +1,4 @@
+
 define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html", "views/searchList" ],
     function(Backbone, $, Handlebars, html, SearchList ) {
 
@@ -11,6 +12,7 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html", "views/s
             "click .js-search_btn": "search",
             "click .js-search_type": "srType",
             "click .js-search_animal": "srAnimal"
+           
         },
 
 
@@ -44,8 +46,16 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html", "views/s
                 type: $('input[name=type]').val().split(','),
                 animal: $('input[name=animal]').val().split(',')
             });
-
-            this.showList.refresh();
+           
+            var geocoder = new window.google.maps.Geocoder();
+            geocoder.geocode( { 'address':  $('.js-search-input').val()}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                  window.gmap.setCenter(results[0].geometry.location);
+                
+                }
+            });
+            
+            this.showList.render();
         },
 
         srType: function( itm ) {
