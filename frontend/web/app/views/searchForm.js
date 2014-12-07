@@ -54,8 +54,6 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html", "views/s
                 
                 }
             });
-            
-            this.showList.render();
         },
 
         srType: function( itm ) {
