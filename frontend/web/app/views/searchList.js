@@ -40,7 +40,7 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchList.html", "collect
 
             refresh: function() {
 
-                this.collection.fetch();
+                this.collection.goSearch();
             },
 
             goBack: function() {
