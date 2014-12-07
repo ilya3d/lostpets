@@ -1,4 +1,4 @@
-define(["backbone", "jquery", "jquery.fancybox"], function(Backbone, $){
+define(["backbone", "jquery","handlebars", "text!tpl/fancyboxContent.html", "jquery.fancybox"], function(Backbone, $, Handlebars, template){
 
 	return Backbone.Model.extend({
 
@@ -8,8 +8,7 @@ define(["backbone", "jquery", "jquery.fancybox"], function(Backbone, $){
 		},
 		initialize: function(marker) {
 
-
-		
+			
 
 		},
 
@@ -38,9 +37,8 @@ define(["backbone", "jquery", "jquery.fancybox"], function(Backbone, $){
 		},
 		select: function() {
 			console.log(this);
-			$.fancybox('testestsetestsete',{
-
-			});
+			var tpl = Handlebars.compile(template);
+			$.fancybox(tpl(this),{});
 
 		}
 
