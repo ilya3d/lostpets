@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
         <?= $form->field($model , 'photo')->fileInput() ?>
         <?= $form->field($model , 'type')->dropDownList(\common\models\Point::getTypeList()) ?>
         <?= $form->field($model , 'animal')->dropDownList(\common\models\Animal::getAnimalList()) ?>
-        <?= $form->field($model , 'email')->textInput(); ?>
+        <?= $form->field($model , 'email')->textInput()->label('E-mail'); ?>
         <?= $form->field($model , 'phone')->textInput(); ?>
         <?= $form->field($model , 'point')->textInput(); ?>
 

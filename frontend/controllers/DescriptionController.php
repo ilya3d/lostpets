@@ -44,8 +44,9 @@ class DescriptionController extends Controller
     {
         $model = new AddPointForm();
 
-        if ($model->load(\Yii::$app->request->post()) && $model->save()) {
-            echo "good";
+        if ($model->load(\Yii::$app->request->post()) && $id = $model->save()) {
+            $this->redirect("/detail/{$id}");
+
         } else {
             return $this->render('form', [
                 'model' => $model,
