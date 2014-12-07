@@ -45,7 +45,7 @@ define([
 				position: new window.google.maps.LatLng(p.latLng.k,p.latLng.B),
 				map: window.mapform
 			});
-			$('#addpointform-point').val(p.latLng.k+" "+p.latLng.B);
+			$('#addpointform-point').attr('value', p.latLng.k+' '+p.latLng.B);
 
 		},
 
