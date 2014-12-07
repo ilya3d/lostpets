@@ -150,8 +150,13 @@ a:hover {
     vertical-align: top;
 }
 .b-header .header__count {
+    margin-right: 10px;
+    float: left;
+    font-size: 14px;
     display: inline-block;
-    vertical-align: top;
+    font-size: 24px;
+    /*
+    vertical-align: top;*/
 }
 /*-----------------------*/
 .b-map {

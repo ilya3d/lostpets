@@ -10,7 +10,8 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchList.html" ],
 
             events: {
                 "click .js-sl_back": "goBack",
-                "click .js-sl_next": "goNext"
+                "click .js-sl_next": "goNext",
+                "click .js-pnt_title": "goToPoint"
             },
 
 
@@ -76,6 +77,16 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchList.html" ],
                     this.cur_pos = this.cur_pos + this.cur_step;
                 }
                 this.render();
+            },
+
+            goToPoint: function( itm ) {
+
+                var lat = $( itm.currentTarget).attr('lat');
+                var lng = $( itm.currentTarget).attr('lng');
+
+                window.gmap.setCenter( new window.google.maps.LatLng( lat, lng ) );
+
+                console.log( lat, lng );
             }
 
 

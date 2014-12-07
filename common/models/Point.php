@@ -43,9 +43,9 @@ class Point extends \yii\db\ActiveRecord
 
     public static function  getTypeList(){
         return [
-            2 => 'Lost',
-            4 => 'Found',
-            8 => 'Search new home'
+            2 => "I've lost my pet",
+            4 => "I've found a pet",
+            8 => 'My pet needs a new home'
         ];
     }
 
@@ -77,9 +77,10 @@ class Point extends \yii\db\ActiveRecord
 
     public static function findPolygon($topleft,$botright, $typeSet = [], $animalSet=[]){
 
+
         // plz understand and forgive
         $sqlType = "and type IN (2,4,8)";
-        if (is_array($typeSet) && !empty($typeSet)){
+        if (is_array($typeSet) && count($typeSet)>0 && $typeSet[0]!=''){
             array_walk($typeSet,function(&$item){$item = (int)$item;});
             $sqlType = " and type IN (".implode(",",$typeSet ).")";
         }

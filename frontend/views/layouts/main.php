@@ -1,4 +1,5 @@
 <?php
+use frontend\widgets\CountPets;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -36,8 +37,8 @@ AppAsset::register($this);
                 <a href="/" class="header__logo"><img src="/images/logo.png" alt="" /></a>
                 <a href="/add" class="header__btn">add new record</a>
                 <div class="header__countbox">
-                    <div class="header__text">Find your home pets:</div>
-                    <div class="header__count"><img src="/images/counter.png" alt="" /></div>
+                    <div class="header__text">Pets found their home:</div>
+                    <div class="header__count"><?= CountPets::widget(); ?></div>
                 </div>
             </div>
 
