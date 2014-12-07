@@ -26,12 +26,14 @@ define([
 			this.listenTo(this.position,   'change', this.setCenter );
 			this.listenTo(this.collection, 'reset',  this.render );
 			this.initMap();
-
+			
 		},
 		initMap: function() {
 			this.option.center = new window.google.maps.LatLng(this.position.get('lat'), this.position.get('lng'));		
 			window.gmap = this.map = new window.google.maps.Map(this.el, this.option);
-			window.google.maps.event.addListener(window.gmap,'dragend', this.boundsChanged);
+			window.google.maps.event.addListener(window.gmap, 'bounds_changed', this.boundsChanged);
+			
+
 					
 		},
 		setCenter: function() {

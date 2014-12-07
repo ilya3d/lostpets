@@ -1,4 +1,4 @@
-define(["backbone"], function(Backbone){
+define(["backbone", "jquery", "jquery.fancybox"], function(Backbone, $){
 
 	return Backbone.Model.extend({
 
@@ -38,6 +38,10 @@ define(["backbone"], function(Backbone){
 		},
 		select: function() {
 			console.log(this);
+			$.fancybox('testestsetestsete',{
+
+			});
+
 		}
 
 
