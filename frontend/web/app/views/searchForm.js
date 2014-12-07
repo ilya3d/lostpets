@@ -1,13 +1,12 @@
-define([ "backbone", 
-         "jquery",
-         "handlebars", 
-         "text!tpl/searchForm.html",
-         "async!http://maps.googleapis.com/maps/api/js?key=AIzaSyDr-WuoW28g6NfwUjOLdzUFV8YP6M4v_Rw&sensor=false"
-         ], function(Backbone, $, Handlebars, html, Google) {
+
+define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html", "views/searchList" ],
+    function(Backbone, $, Handlebars, html, SearchList ) {
 
     return Backbone.View.extend({
 
         template: '',
+
+        showList: {},
 
         events: {
             "click .js-search_btn": "search",
@@ -37,6 +36,8 @@ define([ "backbone",
 
             var tpl = Handlebars.compile( this.template );
             this.$el.html( tpl( { filter: app.Filter.attributes } ) );
+
+            this.showList = new SearchList( {} );
         },
 
         search: function() {
@@ -54,7 +55,7 @@ define([ "backbone",
                 }
             });
             
-
+            this.showList.render();
         },
 
         srType: function( itm ) {
@@ -67,9 +68,6 @@ define([ "backbone",
         },
 
         srAnimal: function( itm ) {
-            //$('.js-search_animal').removeClass( 'map__radiolineon' );
-            //var curType =  $( itm.currentTarget ).addClass( 'map__radiolineon' ).attr( 'tp' );
-            //$('input[name=animal]').val( curType );
             var res = [];
             $( itm.currentTarget).toggleClass( 'map__radiobtnon' );
             $('.map__radiobtnon').each( function() {
