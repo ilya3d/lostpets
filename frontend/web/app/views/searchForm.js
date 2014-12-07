@@ -45,7 +45,7 @@ define([ "backbone", "jquery","handlebars", "text!tpl/searchForm.html", "views/s
                 animal: $('input[name=animal]').val().split(',')
             });
 
-            this.showList.refresh();
+            this.showList.render();
         },
 
         srType: function( itm ) {

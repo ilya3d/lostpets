@@ -2,12 +2,12 @@
     <div class="map__arrow js-sl_back">Back</div>
     <div class="map__listwrap">
         {{#each items}}
-        <div class="map__listitem map__listitem{{point.type}}">
-            <div class="map__listimg"><a href="#"><img src="{{photo}}" alt="{{title}}" /></a></div>
-            <div class="map__listtitle"><a href="#">{{title}}</a></div>
+        <div class="map__listitem map__listitem{{this.type}}">
+            <div class="map__listimg"><a href="#"><img src="{{this.d_photo}}" alt="{{this.d_title}}" /></a></div>
+            <div class="map__listtitle"><a href="#">{{this.d_title}}</a></div>
             <div class="map__listcont">
-                <p>phone.: {{phone}}</p>
-                <p>{{description}}</p>
+                <p>phone.: {{this.d_phone}}</p>
+                <p>{{this.d_text}}</p>
             </div>
         </div>
         {{/each}}
