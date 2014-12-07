@@ -12,6 +12,11 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'request' => [
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ]
+        ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
@@ -32,12 +37,13 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'gii' => 'gii',
-                'add' => 'add/index',
+                'add' => 'description/add',
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'rest','pluralize'=>false ],
                 'print/<hash:\w+>' => 'print/index',
                 '<cmd:\w+>/<action:\w+>'=>'<cmd>/<action>',
-                'add' => 'Add/index',
                 '<cmd:\w+>/<action:\w+>/<state:\w+>'=>'<cmd>/<action>/<state>',
                 '<cmd:\w+>/<action:\w+>/<state:\w+>/<sid:\w+>'=>'<cmd>/<action>/<state>/<sid>',
+
             ]
         ],
 
@@ -45,5 +51,8 @@ return [
             'errorAction' => 'site/error',
         ],
     ],
+
+    'defaultRoute' => 'map',
+
     'params' => $params,
 ];

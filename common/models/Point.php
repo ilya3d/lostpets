@@ -27,6 +27,19 @@ class Point extends \yii\db\ActiveRecord
     public $lat = 0;
     public $lng = 0;
 
+    public function fields(){
+        return[
+            'id',
+            'animal_id',
+            'type',
+            'user_id',
+            'status',
+            'lng',
+            'lat'
+        ];
+
+    }
+
 
     public static function  getTypeList(){
         return [
@@ -77,7 +90,9 @@ class Point extends \yii\db\ActiveRecord
             array_walk($animalSet,function(&$item){$item = (int)$item;});
             $sqlSet = " and type IN (".implode(",",$animalSet ).")";
         }
-        $result =  Yii::$app->db->createCommand("SELECT `point`.id,animal_id,type,user_id,`status`,created_at,X(coordinate) AS lng, Y(coordinate) AS lat FROM `point` INNER JOIN animal ON `animal`.`id` = animal_id  WHERE MBRWithin(`coordinate`,
+
+        $result =  Yii::$app->db->createCommand("SELECT `point`.id,animal_id,type,user_id,`status`,created_at,X(coordinate) AS lng, Y(coordinate) AS lat,
+        description.title as d_title, description.description as d_text,description.phone as d_phone,description.email as d_email,description.photo as d_photo   FROM `point` INNER JOIN description ON description.point_id = `point`.id INNER JOIN animal ON `animal`.`id` = animal_id  WHERE MBRWithin(`coordinate`,
                                         GeomFromText('
                                         Polygon((
                                         {$topleft[0]} {$topleft[1]},
