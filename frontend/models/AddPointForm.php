@@ -92,7 +92,7 @@ class AddPointForm extends Model
 
         $qrCode = new QrCode();
         $qrCode->setText($_SERVER['HTTP_HOST']."/detail/".$description->id);
-        $qrCode->setSize(150);
+        $qrCode->setSize(110);
         $qrCode->setPadding(10);
 
         $qrName = Yii::$app->security->generateRandomString('20').'.png';
