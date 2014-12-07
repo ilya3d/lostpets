@@ -36,9 +36,12 @@ define(["backbone", "jquery","handlebars", "text!tpl/fancyboxContent.html", "jqu
 			 this.m.setMap(null);
 		},
 		select: function() {
-
+			window.app.Router.navigate('/detail/'+this.id, { silent: true });
 			var tpl = Handlebars.compile(template);
 			$.fancybox(tpl(this),{  padding: 0});
+
+
+			  
 
 		}
 
