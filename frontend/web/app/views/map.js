@@ -35,7 +35,7 @@ define([
 			window.google.maps.event.addListener(window.gmap,'dragend', this.boundsChanged);
 			window.google.maps.event.addDomListener(window,'resize', this.render);
 			window.google.maps.event.addListenerOnce(window.gmap, 'idle', this.boundsChanged);
-					
+
 		},
 		setCenter: function() {
 			window.gmap.setCenter(new window.google.maps.LatLng(this.position.get('lat'), this.position.get('lng')))
@@ -49,6 +49,7 @@ define([
 
             $('#map').height( h );
 
+            if ( this.collection != undefined && this.collection.models != undefined )
 			_.each(this.collection.models, function(marker) {
 						marker.add();
 			});

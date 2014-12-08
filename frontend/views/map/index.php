@@ -4,5 +4,5 @@
 <div class="b-map">
 
 
-    <div id="map" style="height: 600px;"></div>
+    <div id="map" style="height: 1000px;"></div>
 </div>
