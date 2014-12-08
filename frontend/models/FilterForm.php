@@ -15,8 +15,7 @@ class FilterForm extends Model
     public function rules()
     {
         return [
-            // name, email, subject and body are required
-            //[['animal','type'], 'required'],
+            [['animal','type','topleft','botright'],'safe'],
             [['animal'],function($attribute, $params){
                 if(!is_array($this->animal)){
                     $this->addError('animal','is not array');

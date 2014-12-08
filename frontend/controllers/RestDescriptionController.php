@@ -4,7 +4,6 @@ namespace frontend\controllers;
 
 use common\models\Description;
 use frontend\models\AddPointForm;
-use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
@@ -14,7 +13,7 @@ class DescriptionController extends Controller
 
     public function actionView($id){
         return $this->render('view', [
-            'description' => $this->findModel($id),
+            'model' => $this->findModel($id),
         ]);
     }
 
@@ -45,9 +44,8 @@ class DescriptionController extends Controller
     {
         $model = new AddPointForm();
 
-        if ($model->load(\Yii::$app->request->post()) && $id = $model->save()) {
-            $this->redirect("/detail/{$id}");
-
+        if ($model->load(\Yii::$app->request->post()) && $model->save()) {
+            echo "good";
         } else {
             return $this->render('form', [
                 'model' => $model,
