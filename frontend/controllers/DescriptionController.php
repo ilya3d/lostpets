@@ -18,13 +18,6 @@ class DescriptionController extends Controller
         ]);
     }
 
-    public function actionIndex($id){
-        return $this->render('index', [
-            'model' => $this->findModel($id),
-        ]);
-
-    }
-
     /**
      * Finds the Point model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

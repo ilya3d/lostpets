@@ -1,4 +1,4 @@
-<? use yii\helpers\Html;
+<?php use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 $this->registerMetaTag([

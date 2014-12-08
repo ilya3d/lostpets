@@ -30,5 +30,5 @@
         <div class="phonebox__item"><span>tel.: <?= $description->phone ?></span></div>
 
     </div>
-    <? endif ?>
+    <?php endif ?>
 </div>
