@@ -7,7 +7,7 @@ requirejs.config({
     //never includes a ".js" extension since
     //the paths config could be for a directory.
     shim: {
-      
+        'jquery.fancybox':  ['jquery']
     },
     paths: {
         backbone: '../vendor/backbone/backbone',
@@ -15,7 +15,8 @@ requirejs.config({
         text: '../vendor/requirejs-text/text',
         handlebars: '../vendor/handlebars/handlebars',
         jquery: '../vendor/jQuery/dist/jquery.min',
-        async: '../vendor/requirejs-plugins/src/async'
+        async: '../vendor/requirejs-plugins/src/async',
+        'jquery.fancybox': '//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack'
     }
 });
 require([

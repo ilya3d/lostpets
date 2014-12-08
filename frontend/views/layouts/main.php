@@ -1,4 +1,5 @@
 <?php
+use frontend\widgets\CountPets;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -11,9 +12,7 @@ use frontend\widgets\Alert;
 
 //\yii\bootstrap\BootstrapAsset::register($this);
 AppAsset::register($this);
-
-
-
+$currentAction = \Yii::$app->controller->id.'/'.\Yii::$app->controller->action->id;
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -27,14 +26,19 @@ AppAsset::register($this);
 </head>
 <body>
     <?php $this->beginBody() ?>
+    <div class="map__wrap">
+        <div class="map__wrap2 js-search"></div>
+    </div>
     <div class="b-container">
         <div class="container__rama">
             <div class="b-header">
                 <a href="/" class="header__logo"><img src="/images/logo.png" alt="" /></a>
-                <a href="/add/" class="header__btn">add new record</a>
+                <?php if($currentAction != 'description/add'): ?>
+                <a href="/add" class="header__btn">add new record</a>
+                <?php endif ?>
                 <div class="header__countbox">
-                    <div class="header__text">Find your home pets:</div>
-                    <div class="header__count"><img src="/images/counter.png" alt="" /></div>
+                    <div class="header__text">Pets found their home:</div>
+                    <div class="header__count"><?= CountPets::widget(); ?></div>
                 </div>
             </div>
 

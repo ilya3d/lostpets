@@ -13,14 +13,20 @@ define(["backbone","models/marker", "models/filter", "underscore"], function(Bac
 
 		fetch: function() {
 			var self = this;
+			var filter = window.app.Filter.toJSON();
+			if (!filter.topleft) return false;
+			
+
 			Backbone.$.ajax({
-				type: 'GET',
+				type: 'POST',
 				url: this.url,
-                data: window.app.Filter.attributes,
+                data: filter,
 				success: function( data ) {
 					_.each(self.models, function(marker) { marker.del(); });
 
-					self.reset(JSON.parse(data));
+					var d = JSON.parse(data);
+					if (!d.error) self.reset(d);
+
 
 				}
 			});

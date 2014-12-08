@@ -20,7 +20,7 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
         'css/main.css',
-        'css/print.css',
+        '//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css',
     ];
     public $js = [
     ];

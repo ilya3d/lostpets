@@ -4,34 +4,23 @@ namespace frontend\controllers;
 
 use common\models\Description;
 use yii\web\Controller;
-use Endroid\QrCode\QrCode;;
+use yii\web\HttpException;
 
 class PrintController extends Controller
 {
+
+    public $layout = 'print';
+
     public function actionIndex($hash)
     {
 
-        //echo $hash;
+        $description = new Description;
+        $item = $description->findOne(['hash' => $hash]);
 
-        header('Content-Type: image/png;');
+        if(is_null($item))
+            throw new HttpException(404);
 
-        $qrCode = new QrCode();
-        $qrCode->setText("Life is too short to be generating QR codes");
-        $qrCode->setSize(150);
-        $qrCode->setPadding(10);
-        $qrCode->render();
-
-
-//        $model = new Description();
-//
-//        if ($model->load(\Yii::$app->request->post()) && $model->save()) {
-//            return $this->redirect(['form', 'id' => $model->id]);
-//        } else {
-//            return $this->render('form', [
-//                'model' => $model,
-//            ]);
-//        }
-
+        echo $this->render('index', ['description' => $item]);
     }
 
 }

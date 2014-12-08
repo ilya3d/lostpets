@@ -26,12 +26,15 @@ define([
 			this.listenTo(this.position,   'change', this.setCenter );
 			this.listenTo(this.collection, 'reset',  this.render );
 			this.initMap();
-
+			
 		},
 		initMap: function() {
 			this.option.center = new window.google.maps.LatLng(this.position.get('lat'), this.position.get('lng'));		
 			window.gmap = this.map = new window.google.maps.Map(this.el, this.option);
+
 			window.google.maps.event.addListener(window.gmap,'dragend', this.boundsChanged);
+			window.google.maps.event.addDomListener(window,'resize', this.render);
+			window.google.maps.event.addListenerOnce(window.gmap, 'idle', this.boundsChanged);
 					
 		},
 		setCenter: function() {
@@ -39,6 +42,12 @@ define([
 		},
 
 		render: function() {
+
+            var h = document.documentElement.clientHeight - 115 - 42;
+            if ( h < 480 )
+                h = 480;
+
+            $('#map').height( h );
 
 			_.each(this.collection.models, function(marker) {
 						marker.add();
@@ -48,8 +57,8 @@ define([
 		boundsChanged: function() {
 			var bounds = window.gmap.getBounds();
 			window.app.Filter.set({
-				topleft:  [bounds.Fa.j, bounds.Fa.k],
-				botright: [bounds.wa.j, bounds.wa.k]
+				topleft:  [bounds.wa.j, bounds.Fa.j],
+				botright: [bounds.wa.k, bounds.Fa.k]
 			});
 
 		}

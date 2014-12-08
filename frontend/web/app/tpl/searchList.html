@@ -1,46 +1,16 @@
 <div class="map__listbox">
-    <div class="map__arrow">Back</div>
+    <div class="map__arrow js-sl_back"{{#if btn_back}} style="display: none"{{/if}}>Back</div>
     <div class="map__listwrap">
-        <div class="map__listitem map__listitem1">
-            <div class="map__listimg"><a href="#"><img src="../images/cat.jpg" alt="" /></a></div>
-            <div class="map__listtitle"><a href="#">Котенок ищет дом</a></div>
+        {{#each items}}
+        <div class="map__listitem map__listitem{{this.type}}">
+            <div class="map__listimg"><a href="#"><img src="{{#if this.d_photo}}{{this.d_photo}}{{else}}/images/empty.png{{/if}}" alt="{{this.d_title}}" style="max-width: 90px; max-height: 90px;" /></a></div>
+            <div class="map__listtitle"><a href="#" class="js-pnt_title" lng="{{this.lng}}" lat="{{this.lat}}">{{this.d_title}}</a></div>
             <div class="map__listcont">
-                <p>тел.: 8 800 800 00 00</p>
-                <p>Котенок ищет новый дом. Серый в полоску. Котенок ищет новый дом. Серый в полоску.</p>
+                <p>phone.: {{this.d_phone}}</p>
+                <p>{{this.d_text}}</p>
             </div>
         </div>
-        <div class="map__listitem map__listitem2">
-            <div class="map__listimg"><a href="#"><img src="../images/cat.jpg" alt="" /></a></div>
-            <div class="map__listtitle"><a href="#">Котенок ищет дом</a></div>
-            <div class="map__listcont">
-                <p>тел.: 8 800 800 00 00</p>
-                <p>Котенок ищет новый дом. Серый в полоску. Котенок ищет новый дом. Серый в полоску.</p>
-            </div>
-        </div>
-        <div class="map__listitem map__listitem3">
-            <div class="map__listimg"><a href="#"><img src="../images/cat.jpg" alt="" /></a></div>
-            <div class="map__listtitle"><a href="#">Котенок ищет дом</a></div>
-            <div class="map__listcont">
-                <p>тел.: 8 800 800 00 00</p>
-                <p>Котенок ищет новый дом. Серый в полоску. Котенок ищет новый дом. Серый в полоску.</p>
-            </div>
-        </div>
-        <div class="map__listitem">
-            <div class="map__listimg"><a href="#"><img src="../images/cat.jpg" alt="" /></a></div>
-            <div class="map__listtitle"><a href="#">Котенок ищет дом</a></div>
-            <div class="map__listcont">
-                <p>тел.: 8 800 800 00 00</p>
-                <p>Котенок ищет новый дом. Серый в полоску. Котенок ищет новый дом. Серый в полоску.</p>
-            </div>
-        </div>
-        <div class="map__listitem">
-            <div class="map__listimg"><a href="#"><img src="../images/cat.jpg" alt="" /></a></div>
-            <div class="map__listtitle"><a href="#">Котенок ищет дом</a></div>
-            <div class="map__listcont">
-                <p>тел.: 8 800 800 00 00</p>
-                <p>Котенок ищет новый дом. Серый в полоску. Котенок ищет новый дом. Серый в полоску.</p>
-            </div>
-        </div>
+        {{/each}}
     </div>
-    <div class="map__arrow">Next</div>
+    <div class="map__arrow js-sl_next"{{#if btn_next}} style="display: none"{{/if}}>Next</div>
 </div>

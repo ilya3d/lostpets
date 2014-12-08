@@ -27,12 +27,25 @@ class Point extends \yii\db\ActiveRecord
     public $lat = 0;
     public $lng = 0;
 
+    public function fields(){
+        return[
+            'id',
+            'animal_id',
+            'type',
+            'user_id',
+            'status',
+            'lng',
+            'lat'
+        ];
+
+    }
+
 
     public static function  getTypeList(){
         return [
-            2 => 'Lost',
-            4 => 'Found',
-            8 => 'Search new home'
+            2 => "I've lost my pet",
+            4 => "I've found a pet",
+            8 => 'My pet needs a new home'
         ];
     }
 
@@ -64,20 +77,23 @@ class Point extends \yii\db\ActiveRecord
 
     public static function findPolygon($topleft,$botright, $typeSet = [], $animalSet=[]){
 
+
         // plz understand and forgive
-        $sqlType = "";
-        if (is_array($typeSet) && count($typeSet)>1){
+        $sqlType = "and type IN (2,4,8)";
+        if (is_array($typeSet) && count($typeSet)>0 && $typeSet[0]!=''){
             array_walk($typeSet,function(&$item){$item = (int)$item;});
             $sqlType = " and type IN (".implode(",",$typeSet ).")";
         }
 
         $sqlSet = "";
 
-        if (is_array($animalSet) && count($animalSet)>1){
+        if (is_array($animalSet)){
             array_walk($animalSet,function(&$item){$item = (int)$item;});
-            $sqlSet = " and type IN (".implode(",",$animalSet ).")";
+            $sqlSet = " and animal_id IN (".implode(",",$animalSet ).")";
         }
-        $result =  Yii::$app->db->createCommand("SELECT `point`.id,animal_id,type,user_id,`status`,created_at,X(coordinate) AS lng, Y(coordinate) AS lat FROM `point` INNER JOIN animal ON `animal`.`id` = animal_id  WHERE MBRWithin(`coordinate`,
+
+        $result =  Yii::$app->db->createCommand("SELECT `point`.id,animal_id,type,user_id,`status`,created_at,X(coordinate) AS lng, Y(coordinate) AS lat,
+        description.title as d_title, description.description as d_text,description.phone as d_phone,description.email as d_email,CONCAT('/uploads/',description.photo)  as d_photo,description.hash as d_hash   FROM `point` INNER JOIN description ON description.point_id = `point`.id INNER JOIN animal ON `animal`.`id` = animal_id  WHERE MBRWithin(`coordinate`,
                                         GeomFromText('
                                         Polygon((
                                         {$topleft[0]} {$topleft[1]},
@@ -88,6 +104,14 @@ class Point extends \yii\db\ActiveRecord
                                         $sqlType
                                         $sqlSet
                                         LIMIT 0,100")->queryAll();
+
+        foreach($result as &$item){
+
+            if (!is_file(Yii::getAlias('@frontend').'/web/'.$item['d_photo'])){
+                $item['d_photo'] = '';
+            }
+
+        }
 
         return $result;
     }
